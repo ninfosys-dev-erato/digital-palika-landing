@@ -59,7 +59,7 @@ export const siteContent: SiteContent = { // Exporting so other files could pote
     ctaLink: '/work',
   },
   footer: {
-    copyright: { en: '© 2024 Ninja Infosys. All rights reserved.', ne: '© २०२४ निन्जा इन्फोसिस्। सबै अधिकार सुरक्षित।' },
+    copyright: { en: '© 2025 Digital Palika. All rights reserved.', ne: '© २०२४ निन्जा इन्फोसिस्। सबै अधिकार सुरक्षित।' },
     links: [
       { label: { en: 'Privacy Policy', ne: 'गोपनीयता नीति' }, href: '/privacy' },
       { label: { en: 'Terms of Use', ne: 'प्रयोगका सर्तहरू' }, href: '/terms' },
