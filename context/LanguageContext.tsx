@@ -16,41 +16,65 @@ export interface NavItem {
 }
 
 export interface FooterLink {
-    label: LocalizedString;
-    href: string;
+  label: LocalizedString;
+  href: string;
 }
 
-// NEW: Add a type for the stats on the about page
+// Type for the stats on the about page
 export interface StatItem {
-    value: string;
-    label: LocalizedString;
+  value: string;
+  label: LocalizedString;
 }
 
-// This interface now includes a new 'aboutPage' section
+// NEW: Interface for contact details
+export interface ContactDetails {
+    phoneNumbers: string[];
+    email: string;
+    address: LocalizedString;
+}
+
+// NEW: Interface for contact form placeholders/labels
+export interface ContactFormLabels {
+    fullName: LocalizedString;
+    email: LocalizedString;
+    subject: LocalizedString;
+    message: LocalizedString;
+    button: LocalizedString;
+    contactReason: LocalizedString;
+    topic: LocalizedString;
+}
+
+
+// This interface contains all localized content for the entire site
 export interface SiteContent {
-    header: {
-      navItems: NavItem[];
-    };
-    hero: {
-      title: LocalizedString;
-      description: LocalizedString;
-      ctaText: LocalizedString;
-      ctaLink: string;
-    };
-    footer: {
-      copyright: LocalizedString;
-      links: FooterLink[];
-    };
-    // NEW: Add the structure for the about page content
-    aboutPage?: {
-        title: LocalizedString;
-        subtitle: LocalizedString;
-        paragraphs: LocalizedString[];
-        stats: StatItem[];
-    };
-    // We will add other page content types here later
+  header: {
+    navItems: NavItem[];
+  };
+  hero: {
+    title: LocalizedString;
+    description: LocalizedString;
+    ctaText: LocalizedString;
+    ctaLink: string;
+  };
+  footer: {
+    copyright: LocalizedString;
+    links: FooterLink[];
+ };
+// Structure for the about page content
+  aboutPage?: {
+    title: LocalizedString;
+    subtitle: LocalizedString;
+    paragraphs: LocalizedString[];
+    stats: StatItem[];
+  };
+// NEW: Structure for the contact page content
+  contactPage?: {
+    title: LocalizedString;
+    breadcrumb: LocalizedString;
+    details: ContactDetails;
+    form: ContactFormLabels;
+  };
 }
-
 
 // --- 2. Language Context Definition ---
 interface LanguageContextType {
@@ -76,27 +100,27 @@ interface LanguageProviderProps {
 }
 
 export const LanguageProvider = ({ children }: LanguageProviderProps) => {
-  // Initialize language from localStorage or default to 'ne' (Nepali)
+// Initialize language from localStorage or default to 'ne' (Nepali)
   const [lang, setLangState] = useState<Language>(() => {
-    if (typeof window !== 'undefined') {
+    if (typeof window !== 'undefined') { 
       const storedLang = localStorage.getItem('appLang') as Language;
       return storedLang || 'ne'; // Default to Nepali
-    }
-    return 'ne'; // Default for server-side render
-  });
+      }
+      return 'ne'; // Default for server-side render
+});
 
-  const setLang = (newLang: Language) => {
-    setLangState(newLang);
-    if (typeof window !== 'undefined') {
+const setLang = (newLang: Language) => {
+  setLangState(newLang);
+    if (typeof window !== 'undefined') { 
       localStorage.setItem('appLang', newLang);
-    }
-  };
+  }
+};
 
-  const t = (text: LocalizedString) => text[lang];
+const t = (text: LocalizedString) => text[lang];
 
-  return (
-    <LanguageContext.Provider value={{ lang, setLang, t }}>
-      {children}
-    </LanguageContext.Provider>
+return (
+<LanguageContext.Provider value={{ lang, setLang, t }}>
+  {children}
+  </LanguageContext.Provider>
   );
 };
