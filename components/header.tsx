@@ -58,7 +58,7 @@ export const Header = ({ navItems, currentLang, onSearchClick }: HeaderProps) =>
               }`}
               aria-label="Switch to Nepali"
             >
-              NE
+              NP
             </button>
           </div>
 

@@ -36,13 +36,13 @@ const sourceSerifPro = Source_Serif_4({
 // 2. Define SEO Metadata
 // This will generate <title>, <meta description>, Open Graph tags, etc.
 export const metadata: Metadata = {
-  title: 'Digital Palika',
-  description: 'Digital Palika',
+  title: 'डिजिटल पालिका',
+  description: 'Digital e-Palika is a complete local government management system.',
   keywords: ['consulting', 'global', 'strategy', 'technology', 'digital transformation', 'Ninja Infosys'],
   metadataBase: new URL('https://your-domain.com'), // <<< IMPORTANT: CHANGE THIS TO YOUR ACTUAL DOMAIN
   openGraph: {
-    title: 'Digital Palika',
-    description: 'Digital Palika',
+    title: 'डिजिटल पालिका',
+    description: 'Digital e-Palika is a complete local government management system.',
     url: 'https://your-domain.com', // <<< IMPORTANT: CHANGE THIS
     siteName: 'Digital Palika',
     images: [

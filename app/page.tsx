@@ -22,9 +22,9 @@ export const siteContent: SiteContent = {
     ],
   },
   hero: {
-    title: { en: 'Unlocking Potential, Driving Growth', ne: 'सम्भावना खोल्दै, वृद्धि गर्दै' },
-    description: { en: 'Ninja Infosys partners with leading organizations to solve their toughest challenges and seize their greatest opportunities.', ne: 'निन्जा इन्फोसिस् प्रमुख संगठनहरूसँग साझेदारी गरी उनीहरूको सबैभन्दा कठिन चुनौतीहरू समाधान गर्दछ र ठूला अवसरहरू प्राप्त गर्दछ।' },
-    ctaText: { en: 'Click for Demo', ne: 'हाम्रो काम हेर्नुहोस्' },
+    title: { en: 'Digital Municipality (ERP Software)', ne: 'डिजिटल पालिका (ERP Software)' },
+    description: { en: 'Digital Municipality is a system designed to save time and make citizens’ tasks easier. It empowers every local body with information and modern technology, aiming to transform them into technology-enabled and technology-friendly digital municipalities.', ne: 'समयको बचत र जनताको काम सहज रूपमा सम्पन्न गर्नको लागि र हरेक स्थानीय निकायलाई सूचना तथा आधुनिक प्रविधिको माध्यमबाट सशक्त बनाउँदै प्रविधि युक्त, प्रविधि मैत्री डिजिटल पालिकाको रूपमा रूपान्तरण गर्न परिकल्पना गरिएको एक प्रणाली डिजिटल पालिका हो।' },
+    ctaText: { en: 'View Demo', ne: 'डेमो हेर्नुहोस्' },
     ctaLink: '/work',
   },
   footer: {
