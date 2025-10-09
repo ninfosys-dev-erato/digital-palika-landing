@@ -24,7 +24,7 @@ export const siteContent: SiteContent = {
   hero: {
     title: { en: 'Unlocking Potential, Driving Growth', ne: 'सम्भावना खोल्दै, वृद्धि गर्दै' },
     description: { en: 'Ninja Infosys partners with leading organizations to solve their toughest challenges and seize their greatest opportunities.', ne: 'निन्जा इन्फोसिस् प्रमुख संगठनहरूसँग साझेदारी गरी उनीहरूको सबैभन्दा कठिन चुनौतीहरू समाधान गर्दछ र ठूला अवसरहरू प्राप्त गर्दछ।' },
-    ctaText: { en: 'Explore Our Work', ne: 'हाम्रो काम हेर्नुहोस्' },
+    ctaText: { en: 'Click for Demo', ne: 'हाम्रो काम हेर्नुहोस्' },
     ctaLink: '/work',
   },
   footer: {
