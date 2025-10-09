@@ -1,4 +1,4 @@
-"use client"; // Add this for consistency, though not strictly needed if props are already translated
+"use client";
 
 import Link from 'next/link';
 

@@ -18,7 +18,7 @@ export const Header = ({ navItems, currentLang }: HeaderProps) => {
       <div className="container mx-auto px-4 flex justify-between items-center h-16">
         {/* Logo/Site Title */}
         <Link href="/" className="text-2xl font-work-sans font-semibold text-ink tracking-tight hover:text-accent transition-colors">
-          Ninja Infosys
+          Digital Palika
         </Link>
 
         {/* Main Navigation (Hidden on small screens, shown on large) */}
