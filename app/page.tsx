@@ -1,12 +1,9 @@
 "use client";
 
 import { Fragment } from 'react';
-// --- Import only the core components ---
 import { Header } from '../components/header';
 import { Hero } from '../components/hero';
 import { Footer } from '../components/footer';
-
-// --- Import from the new Language Context file ---
 import { LanguageProvider, useLanguage } from '../context/LanguageContext';
 import type { SiteContent } from '../context/LanguageContext';
 
@@ -40,7 +37,6 @@ export const siteContent: SiteContent = {
 export default function Home() {
   return (
     <Fragment>
-      {/* Inject content JSON into the DOM */}
       <script
         id="ni-content"
         type="application/json"
