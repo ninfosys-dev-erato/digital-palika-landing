@@ -1,4 +1,4 @@
-import './globals.css'; // Import global styles
+import './globals.css'; 
 import type { Metadata } from 'next';
 import { Inter, Inter_Tight, Work_Sans, Source_Serif_4 } from 'next/font/google';
 

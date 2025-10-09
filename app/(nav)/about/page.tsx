@@ -1,11 +1,11 @@
 "use client";
 
 import { Fragment } from 'react';
-import { Header } from '../../../components/header';
-import { Footer } from '../../../components/footer';
-import { AboutSection } from '../../../components/AboutSection';
-import { LanguageProvider, useLanguage } from '../../../context/LanguageContext';
-import type { SiteContent, StatItem, FooterLink } from '../../../context/LanguageContext';
+import { Header } from '@/components/header'; 
+import { Footer } from '@/components/footer'; 
+import { AboutSection } from '@/components/AboutSection';
+import { LanguageProvider, useLanguage } from '@/context/LanguageContext'; 
+import type { SiteContent, StatItem, FooterLink } from '@/context/LanguageContext';
 
 // --- Content for the About Page ---
 export const siteContent: SiteContent = {

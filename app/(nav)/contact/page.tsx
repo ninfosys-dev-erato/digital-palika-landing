@@ -1,10 +1,10 @@
 "use client";
 import { Fragment } from 'react';
-import { Header } from '@/components/header'; // CHANGED
-import { Footer } from '@/components/footer'; // CHANGED
-import { ContactSection } from '@/components/ContactSection'; // CHANGED
-import { LanguageProvider, useLanguage } from '@/context/LanguageContext'; // CHANGED
-import type { SiteContent, ContactDetails, ContactFormLabels, FooterLink, NavItem } from '@/context/LanguageContext'; // CHANGED
+import { Header } from '@/components/header'; 
+import { Footer } from '@/components/footer'; 
+import { ContactSection } from '@/components/ContactSection'; 
+import { LanguageProvider, useLanguage } from '@/context/LanguageContext'; 
+import type { SiteContent, ContactDetails, ContactFormLabels, FooterLink, NavItem } from '@/context/LanguageContext'; 
 
 // --- Content for the Contact Page ---
 export const siteContent: SiteContent = {

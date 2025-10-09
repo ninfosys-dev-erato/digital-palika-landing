@@ -1,11 +1,12 @@
 "use client";
 
 import { Fragment } from 'react';
-import { Header } from '../components/header';
-import { Hero } from '../components/hero';
-import { Footer } from '../components/footer';
-import { LanguageProvider, useLanguage } from '../context/LanguageContext';
-import type { SiteContent } from '../context/LanguageContext';
+// FIX: Replace relative imports (../) with the path alias (@/)
+import { Header } from '@/components/header';
+import { Hero } from '@/components/hero';
+import { Footer } from '@/components/footer';
+import { LanguageProvider, useLanguage } from '@/context/LanguageContext';
+import type { SiteContent } from '@/context/LanguageContext';
 
 // --- Simplified Localized Site Content ---
 export const siteContent: SiteContent = {
