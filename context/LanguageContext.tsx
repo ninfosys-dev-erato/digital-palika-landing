@@ -20,7 +20,13 @@ export interface FooterLink {
     href: string;
 }
 
-// This interface now only includes the sections we are using
+// NEW: Add a type for the stats on the about page
+export interface StatItem {
+    value: string;
+    label: LocalizedString;
+}
+
+// This interface now includes a new 'aboutPage' section
 export interface SiteContent {
     header: {
       navItems: NavItem[];
@@ -35,6 +41,14 @@ export interface SiteContent {
       copyright: LocalizedString;
       links: FooterLink[];
     };
+    // NEW: Add the structure for the about page content
+    aboutPage?: {
+        title: LocalizedString;
+        subtitle: LocalizedString;
+        paragraphs: LocalizedString[];
+        stats: StatItem[];
+    };
+    // We will add other page content types here later
 }
 
 
@@ -86,4 +100,3 @@ export const LanguageProvider = ({ children }: LanguageProviderProps) => {
     </LanguageContext.Provider>
   );
 };
-
