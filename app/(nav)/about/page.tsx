@@ -3,12 +3,11 @@
 import { Fragment } from 'react';
 import { Header } from '../../../components/header';
 import { Footer } from '../../../components/footer';
-import { AboutSection } from '../../../components/AboutSection'; // Import the new component
+import { AboutSection } from '../../../components/AboutSection';
 import { LanguageProvider, useLanguage } from '../../../context/LanguageContext';
 import type { SiteContent, StatItem, FooterLink } from '../../../context/LanguageContext';
 
 // --- Content for the About Page ---
-// We only define the content needed for this page's layout.
 export const siteContent: SiteContent = {
   header: {
     navItems: [
@@ -19,7 +18,7 @@ export const siteContent: SiteContent = {
         { label: { en: 'Contact', ne: 'सम्पर्क' }, href: '/contact' },
     ],
   },
-  hero: { title: {en:'', ne:''}, description: {en:'', ne:''}, ctaText: {en:'', ne:''}, ctaLink: '' }, // Not used here, but required by the type
+  hero: { title: {en:'', ne:''}, description: {en:'', ne:''}, ctaText: {en:'', ne:''}, ctaLink: '' }, 
   aboutPage: {
     title: { en: 'Our Mission', ne: 'हाम्रो मिशन' },
     subtitle: {
@@ -63,7 +62,6 @@ export default function AboutPage() {
 // --- Component to render the page content ---
 const AboutContent = () => {
   const { t, lang } = useLanguage();
-  // Using non-null assertion as we know aboutPage is defined in the content object for this page
   const aboutContent = siteContent.aboutPage!;
 
   return (
