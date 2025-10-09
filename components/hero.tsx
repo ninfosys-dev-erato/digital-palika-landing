@@ -1,6 +1,6 @@
 "use client";
 
-import Link from 'next/link';
+import React from 'react';
 
 interface HeroProps {
   title: string;
@@ -10,52 +10,71 @@ interface HeroProps {
 }
 
 export const Hero = ({ title, description, ctaText, ctaLink }: HeroProps) => {
-  // Helper to get Tailwind CSS theme values for dynamic styles
-  // This is a workaround for using theme() in style attributes directly
-  const getTailwindColor = (path: string): string => {
-    const colors: { [key: string]: string } = {
-      'colors.accent': '#0F62FE',
-      'colors.accent-2': '#7A5AF8',
-    };
-    return colors[path] || '';
-  };
-
   return (
-    <section className="relative w-full overflow-hidden min-h-[70vh] flex items-center justify-center text-center bg-paper py-20 px-4 md:py-24 lg:py-32">
-      {/* Abstract background animation - subtle, inspired by dynamic website backgrounds */}
-      <div
-        className="absolute inset-0 z-0 opacity-10"
-        style={{
-          background: `radial-gradient(circle at top left, ${getTailwindColor('colors.accent')} 0%, transparent 40%),
-                       radial-gradient(circle at bottom right, ${getTailwindColor('colors.accent-2')} 0%, transparent 40%)`,
-          backgroundSize: '150% 150%', // Make gradients larger to spread out
-          animation: 'moveGradient 15s ease infinite alternate', // Subtle animation
-        }}
-      ></div>
+    <section className="relative w-full overflow-hidden bg-paper py-20 px-4 md:py-24 lg:py-32">
+      <div className="container mx-auto grid lg:grid-cols-2 gap-12 items-center">
+        {/* Left Column: Text Content */}
+        <div className="z-10 text-center lg:text-left">
+          <h1 
+            className="text-4xl sm:text-5xl md:text-6xl font-work-sans font-bold text-ink leading-tight tracking-tight animate-fade-in-up"
+            style={{ animationDelay: '0.2s' }}
+          >
+            {title}
+          </h1>
+          <p 
+            className="mt-6 text-lg md:text-xl text-graphite font-inter max-w-xl mx-auto lg:mx-0 leading-relaxed animate-fade-in-up"
+            style={{ animationDelay: '0.4s' }}
+          >
+            {description}
+          </p>
+          <a
+            href={ctaLink}
+            className="inline-block mt-8 px-8 py-4 text-lg font-work-sans font-semibold text-paper bg-accent rounded-md hover:bg-accent-2 transition-all duration-300 ease-in-out shadow-lg transform hover:-translate-y-1 animate-fade-in-up"
+            style={{ animationDelay: '0.6s' }}
+          >
+            {ctaText}
+          </a>
+        </div>
 
-      {/* Define the animation for the gradient */}
-      <style jsx>{`
-        @keyframes moveGradient {
-          0% { background-position: 0% 0%; }
-          100% { background-position: 100% 100%; }
+        {/* Right Column: Image */}
+        <div className="relative z-10 animate-fade-in" style={{ animationDelay: '0.5s' }}>
+          <img
+            src="https://placehold.co/800x600/E2E8F0/4A5568?text=Dashboard+UI"
+            alt="Digital Palika Dashboards"
+            className="rounded-lg shadow-2xl w-full h-auto"
+            onError={(e) => { e.currentTarget.src = 'https://placehold.co/800x600/E2E8F0/4A5568?text=Image+Not+Found'; }}
+          />
+        </div>
+      </div>
+       {/* Simple keyframe animations for content fade-in */}
+       <style jsx>{`
+        @keyframes fade-in-up {
+          0% {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          100% {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        @keyframes fade-in {
+          0% {
+            opacity: 0;
+          }
+          100% {
+            opacity: 1;
+          }
+        }
+        .animate-fade-in-up {
+          animation: fade-in-up 0.8s ease-out forwards;
+          opacity: 0;
+        }
+        .animate-fade-in {
+          animation: fade-in 1s ease-out forwards;
+          opacity: 0;
         }
       `}</style>
-
-
-      <div className="relative z-10 max-w-5xl space-y-8 lg:space-y-10">
-        <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-inter-tight font-extrabold text-ink leading-tight tracking-tighter">
-          {title}
-        </h1>
-        <p className="text-lg sm:text-xl md:text-2xl text-graphite font-inter max-w-3xl mx-auto leading-relaxed">
-          {description}
-        </p>
-        <Link
-          href={ctaLink}
-          className="inline-flex items-center justify-center px-10 py-4 text-lg font-work-sans font-semibold text-paper bg-accent rounded-full hover:bg-accent-2 transition-all duration-300 ease-in-out shadow-lg transform hover:-translate-y-1"
-        >
-          {ctaText}
-        </Link>
-      </div>
     </section>
   );
 };

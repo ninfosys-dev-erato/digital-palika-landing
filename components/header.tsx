@@ -1,17 +1,17 @@
-"use client"; // Header also needs to be a client component because it uses useLanguage hook
+"use client";
 
 import Link from 'next/link';
-import { useLanguage, LocalizedString, Language, NavItem } from '../app/page'; // Import from app/page.tsx
-// For icons, we're sticking to direct SVG as discussed.
-// Removed: import { Menu, Search } from 'lucide-react';
+// Corrected import from the Language Context file
+import { useLanguage, Language, NavItem } from '@/context/LanguageContext';
 
 interface HeaderProps {
-  navItems: NavItem[]; // navItems are now LocalizedString
-  currentLang: Language; // To know which button to highlight
+  navItems: NavItem[];
+  currentLang: Language;
+  onSearchClick: () => void;
 }
 
-export const Header = ({ navItems, currentLang }: HeaderProps) => {
-  const { t, setLang } = useLanguage(); // Get the translate function and setLang from context
+export const Header = ({ navItems, currentLang, onSearchClick }: HeaderProps) => {
+  const { t, setLang } = useLanguage();
 
   return (
     <header className="sticky top-0 z-40 w-full bg-paper/90 backdrop-blur-sm border-b border-slate/10 py-4 lg:py-5">
@@ -27,7 +27,7 @@ export const Header = ({ navItems, currentLang }: HeaderProps) => {
             {navItems.map((item) => (
               <li key={item.href}>
                 <Link
-                  href={item.href === '/' ? '/' + currentLang : item.href} // Add language prefix for home link if needed for routing later, otherwise just item.href
+                  href={item.href}
                   className="text-graphite hover:text-accent font-inter text-base font-medium transition-colors relative group"
                 >
                   {t(item.label)} {/* Translate the label here */}
@@ -38,9 +38,9 @@ export const Header = ({ navItems, currentLang }: HeaderProps) => {
           </ul>
         </nav>
 
-        {/* Right-aligned utility section (Search, Language Toggle, Mobile Menu) */}
+        {/* Right-aligned utility section */}
         <div className="flex items-center space-x-6">
-          {/* Language Toggle (EN/NE buttons) */}
+          {/* Language Toggle */}
           <div className="flex items-center border border-slate/20 rounded-lg p-1 space-x-1">
             <button
               onClick={() => setLang('en')}
@@ -66,9 +66,8 @@ export const Header = ({ navItems, currentLang }: HeaderProps) => {
           <button
             aria-label="Search"
             className="p-2 text-graphite hover:text-accent transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-full"
-            // onClick={() => openSearchOverlay()}
+            onClick={onSearchClick}
           >
-            {/* SVG for Search icon */}
             <svg
               xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
               stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
@@ -79,13 +78,11 @@ export const Header = ({ navItems, currentLang }: HeaderProps) => {
             </svg>
           </button>
 
-          {/* Mobile Menu Toggle (Visible only on small screens) */}
+          {/* Mobile Menu Toggle */}
           <button
             aria-label="Open mobile menu"
             className="lg:hidden p-2 text-graphite hover:text-accent transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-full"
-            // onClick={() => openMobileMenu()}
           >
-            {/* SVG for Menu (Hamburger) icon */}
             <svg
               xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
               stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
