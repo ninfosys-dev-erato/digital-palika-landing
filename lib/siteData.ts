@@ -1,3 +1,5 @@
+// lib/siteData.ts
+
 import { LocalizedString, NavItem } from '../context/LanguageContext';
 
 export interface StatisticItem {
@@ -24,14 +26,23 @@ export interface ContactDetail {
     value: LocalizedString;
 }
 
+// NEW INTERFACE FOR ABOUT PAGE SECTIONS
+export interface AboutPageSection {
+    id: string; // "introduction" or "objectives"
+    title: LocalizedString;
+    content: (LocalizedString | { type: 'list'; items: LocalizedString[] }); // Can be paragraphs or a list
+    image?: string; // Path to the image
+    imagePosition?: 'left' | 'right'; // For layout
+}
+
+
 export interface FullSiteContent {
     header: {
         navItems: NavItem[];
-        
     };
     hero: {
         title: LocalizedString;
-        subtitle: LocalizedString; 
+        subtitle: LocalizedString;
         description: LocalizedString;
         ctaText: LocalizedString;
         ctaLink: string;
@@ -46,7 +57,11 @@ export interface FullSiteContent {
         title: LocalizedString;
         description: LocalizedString;
         ctaText: LocalizedString;
-    }
+    };
+    // NEW: Add aboutPage content here
+    aboutPage: {
+        sections: AboutPageSection[];
+    };
     footer: {
         companyName: LocalizedString;
         companyMoto: LocalizedString;
@@ -65,7 +80,6 @@ export interface FullSiteContent {
 export const siteData: FullSiteContent = {
     header: {
         navItems: [
-
             { label: { en: 'Home', ne: 'गृह पृष्ठ' }, href: '/' },
             { label: { en: 'About Us', ne: 'हाम्रो बारेमा' }, href: '/about' },
             { label: { en: 'Our Clients', ne: 'हाम्रो ग्राहकहरु' }, href: '/clients' },
@@ -85,15 +99,14 @@ export const siteData: FullSiteContent = {
     },
     statistics: [
         { id: 1, value: { en: '70 +', ne: '७० +' }, label: { en: 'Service-providing Local Levels', ne: 'सेवा प्रवाह स्थानीय तह' } },
-        { id: 2, value: { en: '8,00,000 +', ne: '८,००,००० +' }, label: { en: 'Beneficiaries', ne: 'लाभान्वित नागरिक' } },
+        { id: 2, value: { en: '8,00,000 +', ne: '८,००,००० +' }, label: { en: 'लाभान्वित नागरिक' } },
         { id: 3, value: { en: '2,500 +', ne: '२,५०० +' }, label: { en: 'Active Professionals', ne: 'लाभान्वित प्रतिनिधिहरु' } },
-        { id: 4, value: { en: '300 +', ne: '३०० +' }, label: { en: 'Exclusive Features', ne: 'खुसी सेवाग्राहीहरु' } },
+        { id: 4, value: { en: '300 +', ne: '३०० +' }, label: { en: 'Exclusive Features', ne: 'खुसी सेवाग्राहीहरु' } }
     ],
     modules: {
         title: { en: 'Digital Municipality Modules', ne: 'डिजिटल पालिका मोड्युल' },
         description: { en: 'A comprehensive system designed to streamline local government operations, as seen in the video.', ne: 'पालिका भित्रको सम्पूर्ण कार्यहरूलाई व्यवस्थित गर्न तयार पारिएको एक व्यापक प्रणाली, भिडियोमा देखाइए अनुसार।' },
         items: [
-            // Icon names map to Lucide icons
             { id: 1, label: { en: 'Digital Citizen Register', ne: 'डिजिटल नागरिक वडापत्र' }, iconName: 'clipboardCheck', colorClass: 'bg-indigo-700/80 text-white' },
             { id: 2, label: { en: 'Office Automation', ne: 'अफिस अटोमेसन' }, iconName: 'box', colorClass: 'bg-yellow-400/80 text-gray-900' },
             { id: 3, label: { en: 'Vehicle Service Management', ne: 'सवारी सेवा व्यवस्थापन' }, iconName: 'car', colorClass: 'bg-purple-400/80 text-gray-900' },
@@ -105,8 +118,8 @@ export const siteData: FullSiteContent = {
             { id: 9, label: { en: 'Research & Evaluation', ne: 'अनुसन्धान र मूल्यांकन' }, iconName: 'barChart', colorClass: 'bg-orange-400/80 text-gray-900' },
             { id: 10, label: { en: 'Estimate System', ne: 'Estimate प्रणाली' }, iconName: 'calculator', colorClass: 'bg-lime-400/80 text-gray-900' },
             { id: 11, label: { en: 'Digital GL Profile', ne: 'डिजिटल जी.एल प्रोफाइल' }, iconName: 'globe', colorClass: 'bg-amber-400/80 text-gray-900' },
-            { id: 12, label: { en: 'Integrated Mobile App', ne: 'Integrated Mobile Application' }, iconName: 'smartphone', colorClass: 'bg-cyan-400/80 text-gray-900' },
-        ],
+            { id: 12, label: { en: 'Integrated Mobile App', ne: 'Integrated Mobile Application' }, iconName: 'smartphone', colorClass: 'bg-cyan-400/80 text-gray-900' }
+        ]
     },
     demoCta: {
         title: { 
@@ -118,6 +131,46 @@ export const siteData: FullSiteContent = {
             ne: 'नेपालका स्थानीय सरकारको आवश्यकता पूरा गर्नको लागि डिजाइन गरिएको डिजिटल ePalika को पूर्ण क्षमताहरू अन्वेषण गर्नुहोस्।' 
         },
         ctaText: { en: 'Book a Demo', ne: 'डेमो बुक गर्नुहोस्' }
+    },
+    // NEW ABOUT PAGE CONTENT ADDED HERE based on your images
+    aboutPage: {
+        sections: [
+            {
+                id: 'introduction',
+                title: { en: 'Introduction', ne: 'परिचय' },
+                content: [
+                    { en: 'डिजिटल प्रविधिले घेरिएको हाम्रो देशको परिवेशमा नेपाल सरकारले सबै स्थानीय निकायलाई डिजिटल प्रविधिसँग जोड्ने काम गरिरहेको छ । यसले स्थानीय निकाय, कर्मचारी, प्रतिनिधि र जनप्रतिनिधिलाई प्रविधिमैत्री बनाउनु पर्ने आजको आवश्यकतालाई पूरा गर्नु पर्ने सबैको जिम्मेवारी हो ।', ne: 'डिजिटल प्रविधिले घेरिएको हाम्रो देशको परिवेशमा नेपाल सरकारले सबै स्थानीय निकायलाई डिजिटल प्रविधिसँग जोड्ने काम गरिरहेको छ । यसले स्थानीय निकाय, कर्मचारी, प्रतिनिधि र जनप्रतिनिधिलाई प्रविधिमैत्री बनाउनु पर्ने आजको आवश्यकतालाई पूरा गर्नु पर्ने सबैको जिम्मेवारी हो ।' },
+                    { en: 'यो सँगै, जिम्मेवारीलाई वहन गर्दै निन्जा इन्फोसिस्ले सबै पालिकाहरूलाई डिजिटल बन्दै एकीकृत सुशासन (ERP) प्रणालीको लागि मार्गदर्शन गरेको छ ।', ne: 'यो सँगै, जिम्मेवारीलाई वहन गर्दै निन्जा इन्फोसिस्ले सबै पालिकाहरूलाई डिजिटल बन्दै एकीकृत सुशासन (ERP) प्रणालीको लागि मार्गदर्शन गरेको छ ।' },
+                    { en: 'यस अभियानले पालिकाहरूलाई पूर्ण प्रविधिमैत्री बनाउन डिजिटल नागरिक वडापत्र, दर्ता चलानी प्रणाली, कार्य व्यवस्थापन प्रणाली, गुनासो व्यवस्थापन प्रणाली जस्ता कार्यहरूलाई दैनिक डिजिटलमाध्यबाट कार्यसम्पादन गर्न सहयोग गर्छ । “डिजिटल पालिका” अभियानअन्तर्गत हामीले पालिकाका हरेक गतिविधि जनताको हातमा पुऱ्याउन, उच्च पारदर्शिता सिद्धान्त व्यवस्थापन गर्नु पर्ने, उपयुक्त प्रविधिको प्रयोगमा आधारित हुनु पर्ने र यसलाई दिगो विकासको लक्ष्य हासिल गर्न प्रयोग गरिनु पर्ने विश्वास गर्छौँ।', ne: 'यस अभियानले पालिकाहरूलाई पूर्ण प्रविधिमैत्री बनाउन डिजिटल नागरिक वडापत्र, दर्ता चलानी प्रणाली, कार्य व्यवस्थापन प्रणाली, गुनासो व्यवस्थापन प्रणाली जस्ता कार्यहरूलाई दैनिक डिजिटलमाध्यबाट कार्यसम्पादन गर्न सहयोग गर्छ । “डिजिटल पालिका” अभियानअन्तर्गत हामीले पालिकाका हरेक गतिविधि जनताको हातमा पुऱ्याउन, उच्च पारदर्शिता सिद्धान्त व्यवस्थापन गर्नु पर्ने, उपयुक्त प्रविधिको प्रयोगमा आधारित हुनु पर्ने र यसलाई दिगो विकासको लक्ष्य हासिल गर्न प्रयोग गरिनु पर्ने विश्वास गर्छौँ।' },
+                    { en: 'यसका अलावा “डिजिटल पालिका” को माध्यमबाट राजस्व संकलन प्रणाली, अनुदान व्यवस्थापन प्रणाली, न्यायिक समिति प्रणाली, तालिम व्यवस्थापन प्रणाली, उपभोक्ता तथा थोक नागरिक परिचालनकात्मक कार्यसञ्चालनलाई पनि प्रविधिमैत्री बनाउँदै, पालिका र जनतालाई सिधै जोड्ने काम गर्न सकिन्छ । निन्जा इन्फोसिस्ले सुरु गरेको डिजिटल पालिका अभियानमा हामी सबैको सहकार्य आवश्यक छ । यस सहकार्यमा विभिन्न संघ-संस्था वा दातृ निकायहरूका पनि साथ र सहयोग हामीलाई चाहिएको छ ।', ne: 'यसका अलावा “डिजिटल पालिका” को माध्यमबाट राजस्व संकलन प्रणाली, अनुदान व्यवस्थापन प्रणाली, न्यायिक समिति प्रणाली, तालिम व्यवस्थापन प्रणाली, उपभोक्ता तथा थोक नागरिक परिचालनकात्मक कार्यसञ्चालनलाई पनि प्रविधिमैत्री बनाउँदै, पालिका र जनतालाई सिधै जोड्ने काम गर्न सकिन्छ । निन्जा इन्फोसिस्ले सुरु गरेको डिजिटल पालिका अभियानमा हामी सबैको सहकार्य आवश्यक छ । यस सहकार्यमा विभिन्न संघ-संस्था वा दातृ निकायहरूका पनि साथ र सहयोग हामीलाई चाहिएको छ ।' },
+                    { en: '“आउनुहोस्, तपाइँहरूको साथ र सहयोग लिएर हामी सबै पालिकाहरूलाई पूर्ण प्रविधिमैत्री बनाऔं ।”', ne: '“आउनुहोस्, तपाइँहरूको साथ र सहयोग लिएर हामी सबै पालिकाहरूलाई पूर्ण प्रविधिमैत्री बनाऔं ।”' }
+                ],
+                image: '/images/about-intro.png', // Placeholder, replace with actual image path
+                imagePosition: 'right'
+            },
+            {
+                id: 'objectives',
+                title: { en: 'Objectives', ne: 'उद्देश्य' },
+                content: {
+                    type: 'list',
+                    items: [
+                        { en: 'डिजिटल प्रविधिमैत्री देवी बनाउनु।', ne: 'डिजिटल प्रविधिमैत्री देवी बनाउनु।' },
+                        { en: 'पालिकालाई डिजिटल पालिकामै दैनिक कार्यसम्पादन गर्न सहयोग पुग्नु।', ne: 'पालिकालाई डिजिटल पालिकामै दैनिक कार्यसम्पादन गर्न सहयोग पुग्नु।' },
+                        { en: 'मोबाइल एप मार्फत सबैजना जानकारीलाई साथै अन्य दृश्य माध्यमले जानकारी गराउनु।', ne: 'मोबाइल एप मार्फत सबैजना जानकारीलाई साथै अन्य दृश्य माध्यमले जानकारी गराउनु।' },
+                        { en: 'पालिकाले प्रवाह गर्ने सेवाहरू मध्ये धेरै जसो सेवालाई अनलाइन मार्फत आवेदन लिने, कार्य सम्पादन गर्ने र सेवा प्रदान गर्ने।', ne: 'पालिकाले प्रवाह गर्ने सेवाहरू मध्ये धेरै जसो सेवालाई अनलाइन मार्फत आवेदन लिने, कार्य सम्पादन गर्ने र सेवा प्रदान गर्ने।' },
+                        { en: 'पालिकाको जनप्रतिनिधि, कर्मचारी र सेवाग्राहीको समय बचत गर्नु।', ne: 'पालिकाको जनप्रतिनिधि, कर्मचारी र सेवाग्राहीको समय बचत गर्नु।' },
+                        { en: 'पालिकालाई एकीकृत राजस्व संकलन, सूचना, तथ्यांक, सेवाप्रवाह र सोको रिपोर्टसहित निकाल्न मिल्ने गरि तयार हुनु।', ne: 'पालिकालाई एकीकृत राजस्व संकलन, सूचना, तथ्यांक, सेवाप्रवाह र सोको रिपोर्टसहित निकाल्न मिल्ने गरि तयार हुनु।' },
+                        { en: 'स्थानीय तहलाई प्रविधि सँग जोड्दा अनुवाद दुरुपयोग, वास्तविक विवरण, तथ्यांक लगायत देखिने त्रुटि पालिकाहरूलाई स्थानीय तहमा हुने प्रकारको समस्यालाई बेअसर व्यवस्थापनमा सहयोग पुग्नु।', ne: 'स्थानीय तहलाई प्रविधि सँग जोड्दा अनुवाद दुरुपयोग, वास्तविक विवरण, तथ्यांक लगायत देखिने त्रुटि पालिकाहरूलाई स्थानीय तहमा हुने प्रकारको समस्यालाई बेअसर व्यवस्थापनमा सहयोग पुग्नु।' },
+                        { en: 'सम्पूूर्ण डिजिटल ई-पालिकाको अवधारणाले पालिकाहरूको सम्पूर्ण कार्य प्रणाली, सेवा जोड्दा, प्रविधि मार्फत नै सबैको कार्यसम्पादन गर्दा र स्थानीयवासीले यसै पालिकामै पुगेको अनुभूति प्राप्त गर्ने।', ne: 'सम्पूूर्ण डिजिटल ई-पालिकाको अवधारणाले पालिकाहरूको सम्पूर्ण कार्य प्रणाली, सेवा जोड्दा, प्रविधि मार्फत नै सबैको कार्यसम्पादन गर्दा र स्थानीयवासीले यसै पालिकामै पुगेको अनुभूति प्राप्त गर्ने।' },
+                        { en: 'पालिकाको सम्पूर्ण सेवाहरूलाई अनलाइन बनाउन यो विवरण वस्तुस्थितिमा एकीकृत हुनु।', ne: 'पालिकाको सम्पूर्ण सेवाहरूलाई अनलाइन बनाउन यो विवरण वस्तुस्थितिमा एकीकृत हुनु।' },
+                        { en: 'एकीकृत मोबाइल र वेबमा आधारित प्रणाली प्रदान गर्नु।', ne: 'एकीकृत मोबाइल र वेबमा आधारित प्रणाली प्रदान गर्नु।' },
+                        { en: 'पालिकाको दैनिक गतिविधिहरूमा नागरिकको सक्रिय संलग्नता बढाउनु।', ne: 'पालिकाको दैनिक गतिविधिहरूमा नागरिकको सक्रिय संलग्नता बढाउनु।' }
+                    ]
+                },
+                image: '/images/about-objectives.png', // Placeholder, replace with actual image path
+                imagePosition: 'right'
+            }
+        ]
     },
     footer: {
         companyName: { en: 'Digital Palika', ne: 'डिजिटल पालिका' },

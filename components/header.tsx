@@ -33,10 +33,10 @@ export const Header = () => {
     return (
         // Use fixed width container for responsiveness and sticky top for smooth scrolling
         <header className="sticky top-0 z-40 w-full bg-white/95 backdrop-blur-sm shadow-md transition-shadow">
-            <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-20">
                 
                 {/* Logo/Site Title: Uses the title from siteData */}
-                <Link href="/" className="text-2xl font-extrabold text-indigo-700 tracking-tight transition-colors hover:text-indigo-900">
+                <Link href="/" className="text-3xl font-extrabold text-indigo-700 tracking-tight transition-colors hover:text-indigo-900">
                     {t(siteData.hero.title)}
                 </Link>
 
@@ -48,11 +48,10 @@ export const Header = () => {
                             <li key={item.href}>
                                 <Link
                                     href={item.href}
-                                    className="text-gray-700 text-sm font-medium transition-colors hover:text-indigo-600 relative group py-2"
+                                    className="text-gray-700 text-base transition-colors hover:text-indigo-600 relative group py-2"
                                 >
-                                    {t(item.label)} {/* Translate the label */}
-                                    {/* Underline effect */}
-                                    <span className="absolute bottom-0 left-0 w-full h-0.5 bg-indigo-600 scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300 rounded-full"></span>
+                                    {t(item.label)}
+                                    <span className="absolute bottom-0 left-0 w-full h-0.5 bg-indigo-600 scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></span>
                                 </Link>
                             </li>
                         ))}
@@ -62,21 +61,11 @@ export const Header = () => {
                 {/* Right-aligned utility section: Search, Language Toggle, Mobile Menu */}
                 <div className="flex items-center space-x-4 sm:space-x-6">
 
-                    {/* Search Icon Button */}
-                    {/* <button
-                        aria-label="Search"
-                        className="p-2 text-gray-500 hover:text-indigo-600 transition-colors rounded-full focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                        onClick={handleSearchClick}
-                    >
-                        <Search size={20} />
-                    </button> */}
-                    
-                    
                     {/* Language Toggle */}
-                    <div className="flex items-center border border-gray-300 rounded-lg p-0.5 space-x-0.5 shadow-sm">
+                    <div className="flex items-center border border-gray-300 p-0.5 space-x-0.5 shadow-sm">
                         <button
                             onClick={() => setLang('en' as Language)}
-                            className={`px-2 py-1 text-xs font-semibold rounded-md transition-all duration-200 ${
+                            className={`px-3 py-1 text-base font-semibold transition-all duration-200 ${
                                 lang === 'en' 
                                     ? 'bg-indigo-600 text-white shadow-md' 
                                     : 'text-gray-600 hover:bg-gray-100'
@@ -87,7 +76,7 @@ export const Header = () => {
                         </button>
                         <button
                             onClick={() => setLang('ne' as Language)}
-                            className={`px-2 py-1 text-xs font-semibold rounded-md transition-all duration-200 ${
+                            className={`px-3 py-1 text-base font-semibold transition-all duration-200 ${
                                 lang === 'ne' 
                                     ? 'bg-indigo-600 text-white shadow-md' 
                                     : 'text-gray-600 hover:bg-gray-100'
@@ -104,7 +93,7 @@ export const Header = () => {
                         className="lg:hidden p-2 text-gray-700 hover:text-indigo-600 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 rounded-full"
                         onClick={handleMobileMenuClick}
                     >
-                        <Menu size={24} />
+                        <Menu size={28} />
                     </button>
                 </div>
             </div>

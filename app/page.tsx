@@ -1,27 +1,49 @@
 "use client";
 
 import { Fragment } from 'react';
-// FIX: Replace relative imports (../) with the path alias (@/)
 import { Header } from '@/components/header';
 import { Hero } from '@/components/hero';
 import { Footer } from '@/components/footer';
-import { LanguageProvider, useLanguage } from '@/context/LanguageContext';
-import type { SiteContent } from '@/context/LanguageContext';
+import { LanguageProvider, useLanguage, LocalizedString, NavItem } from '@/context/LanguageContext';
+
+// --- Add missing types ---
+export interface FooterLink {
+  label: LocalizedString;
+  href: string;
+}
+export interface SiteContent {
+  header: {
+    navItems: NavItem[];
+  };
+  hero: {
+    title: LocalizedString;
+    description: LocalizedString;
+    ctaText: LocalizedString;
+    ctaLink: string;
+  };
+  footer: {
+    copyright: LocalizedString;
+    links: FooterLink[];
+  };
+}
 
 // --- Simplified Localized Site Content ---
 export const siteContent: SiteContent = {
   header: {
     navItems: [
-        { label: { en: 'Home', ne: 'गृह पृष्ठ' }, href: '/' },
-        { label: { en: 'About Us', ne: 'हाम्रो बारेमा' }, href: '/about' },
-        { label: { en: 'Our Clients', ne: 'हाम्रो ग्राहकहरु' }, href: '/clients' },
-        { label: { en: 'Specialties', ne: 'विशेषताहरु' }, href: '/specialties' },
-        { label: { en: 'Contact', ne: 'सम्पर्क' }, href: '/contact' },
+      { label: { en: 'Home', ne: 'गृह पृष्ठ' }, href: '/' },
+      { label: { en: 'About Us', ne: 'हाम्रो बारेमा' }, href: '/about' },
+      { label: { en: 'Our Clients', ne: 'हाम्रो ग्राहकहरु' }, href: '/clients' },
+      { label: { en: 'Specialties', ne: 'विशेषताहरु' }, href: '/specialties' },
+      { label: { en: 'Contact', ne: 'सम्पर्क' }, href: '/contact' },
     ],
   },
   hero: {
     title: { en: 'Digital Municipality (ERP Software)', ne: 'डिजिटल पालिका (ERP Software)' },
-    description: { en: 'Digital Municipality is a system designed to save time and make citizens’ tasks easier. It empowers every local body with information and modern technology, aiming to transform them into technology-enabled and technology-friendly digital municipalities.', ne: 'समयको बचत र जनताको काम सहज रूपमा सम्पन्न गर्नको लागि र हरेक स्थानीय निकायलाई सूचना तथा आधुनिक प्रविधिको माध्यमबाट सशक्त बनाउँदै प्रविधि युक्त, प्रविधि मैत्री डिजिटल पालिकाको रूपमा रूपान्तरण गर्न परिकल्पना गरिएको एक प्रणाली डिजिटल पालिका हो।' },
+    description: {
+      en: "Digital Municipality is a system designed to save time and make citizens’ tasks easier. It empowers every local body with information and modern technology, aiming to transform them into technology-enabled and technology-friendly digital municipalities.",
+      ne: "समयको बचत र जनताको काम सहज रूपमा सम्पन्न गर्नको लागि र हरेक स्थानीय निकायलाई सूचना तथा आधुनिक प्रविधिको माध्यमबाट सशक्त बनाउँदै प्रविधि युक्त, प्रविधि मैत्री डिजिटल पालिकाको रूपमा रूपान्तरण गर्न परिकल्पना गरिएको एक प्रणाली डिजिटल पालिका हो।"
+    },
     ctaText: { en: 'View Demo', ne: 'डेमो हेर्नुहोस्' },
     ctaLink: '/work',
   },
@@ -53,10 +75,6 @@ export default function Home() {
 // --- Component to render the page content ---
 const HomeContent = () => {
   const { t, lang } = useLanguage();
-
-  // State for modals can be added back here when needed
-  // const [isSearchOpen, setIsSearchOpen] = useState(false);
-  // const [isOfficesOpen, setIsOfficesOpen] = useState(false);
 
   return (
     <Fragment>

@@ -2,7 +2,22 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { ContactDetails, ContactFormLabels, LocalizedString } from '@/context/LanguageContext';
+import { LocalizedString } from '@/context/LanguageContext';
+
+// --- Add missing types ---
+export interface ContactDetails {
+    phoneNumbers: string[];
+    email: string;
+    address: LocalizedString;
+}
+export interface ContactFormLabels {
+    fullName: LocalizedString;
+    email: LocalizedString;
+    contactReason: LocalizedString;
+    topic: LocalizedString;
+    message: LocalizedString;
+    button: LocalizedString;
+}
 
 // Define the icons using lucide-react names for better reusability
 const Icon = ({ name, className = "" }: { name: string, className?: string }) => {
@@ -36,7 +51,7 @@ export const ContactSection = ({ title, breadcrumb, details, formLabels, t }: Co
     // Simple handler for form submission (replace with actual logic later)
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        alert('Form submitted! (In a real application, this would send data to a server)');
+        alert('Form submitted!');
     };
 
     return (
@@ -101,7 +116,7 @@ export const ContactSection = ({ title, breadcrumb, details, formLabels, t }: Co
                 </div>
 
                 {/* Contact Form */}
-                <div className="max-w-3xl mx-auto border border-slate/10 p-8 md:p-12 rounded-lg shadow-xl">
+                <div className="max-w-3xl mx-auto border border-slate/10 p-8 md:p-12 shadow-xl">
                     <form onSubmit={handleSubmit} className="space-y-6">
                         
                         {/* Name and Email Row */}
