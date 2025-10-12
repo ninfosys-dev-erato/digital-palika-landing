@@ -55,16 +55,16 @@ const AnimatedStat = ({ value, label }: { value: string; label: string }) => {
 const SectionRenderer = ({ section }: { section: AboutPageSection }) => {
     const { t } = useLanguage();
     const isList = !Array.isArray(section.content);
-    const imageOnRight = section.imagePosition === 'right';
-
-    // Tailwind classes for alternating layout
-    const layoutClasses = imageOnRight ? 'md:flex-row-reverse' : 'md:flex-row';
-    const textOrder = imageOnRight ? 'order-1' : 'order-2';
-    const imageOrder = imageOnRight ? 'order-2' : 'order-1';
 
     // Detect section type
     const isIntroduction = section.id === 'introduction';
     const isObjectives = section.id === 'objectives';
+
+    // Layout logic
+    const imageOnRight = isIntroduction ? false : section.imagePosition === 'right';
+    const layoutClasses = isIntroduction ? 'md:flex-row' : (imageOnRight ? 'md:flex-row-reverse' : 'md:flex-row');
+    const textOrder = 'order-1';
+    const imageOrder = 'order-2';
 
     // Set image source based on section
     let imageSrc = '';
@@ -76,43 +76,40 @@ const SectionRenderer = ({ section }: { section: AboutPageSection }) => {
             className={`flex flex-col ${layoutClasses} gap-8 lg:gap-12 py-12 md:py-16 border-b border-slate-100 last:border-b-0`}
             id={section.id}
         >
-            {/* Text and Content Block */}
+            {/* Text Block */}
             <div className={`w-full md:w-1/2 ${textOrder}`}>
                 <h2 className={`text-xl md:text-2xl font-work-sans font-extrabold mb-4 ${(isIntroduction || isObjectives) ? 'text-blue-700' : 'text-primary'}`}>
                     {t(section.title)}
                 </h2>
-
-                {/* Render Paragraphs */}
+                {/* Paragraphs */}
                 {!isList && Array.isArray(section.content) && section.content.map((p, index) => (
                     <p key={index} className={`text-sm md:text-base font-inter leading-relaxed mb-3 text-justify ${(isIntroduction || isObjectives) ? 'text-black' : 'text-slate'}`}>
                         {t(p)}
                     </p>
                 ))}
-
-                {/* Render Bulleted List (Objectives) */}
+                {/* Objectives List */}
                 {isList && !Array.isArray(section.content) && section.content.type === 'list' && (
                     <ul className="text-sm md:text-base text-black font-inter space-y-3 list-disc list-inside ml-4 text-justify">
                         {section.content.items.map((item, index) => (
-                            <li key={index} className="text-black">
+                            <li key={index} className="text-black text-justify">
                                 {t(item)}
                             </li>
                         ))}
                     </ul>
                 )}
             </div>
-
-            {/* Image Block (Only if image path exists) */}
+            {/* Image Block */}
             {(isIntroduction || isObjectives) && (
-                <div className={`w-full md:w-1/2 flex justify-center items-start ${imageOrder}`}>
-                    <div className="w-full h-auto max-w-lg overflow-hidden rounded-xl mt-8">
+                <div className={`w-full md:w-1/2 ${imageOrder} flex justify-center items-center`}>
+                    <div className="w-full h-auto max-w-lg overflow-hidden">
                         <Image
                             src={imageSrc}
                             alt={t(section.title)}
-                            width={800}
-                            height={800}
+                            width={600}
+                            height={400}
                             style={{ width: '100%', height: 'auto' }}
                             priority
-                            className="object-cover"
+                            className="object-contain"
                         />
                     </div>
                 </div>
@@ -138,3 +135,17 @@ export const AboutSection = ({ sections, stats }: AboutSectionProps) => {
         </section>
     );
 };
+
+const aboutSections: AboutPageSection[] = [
+    {
+        id: 'introduction',
+        title: 'परिचय',
+        content: [
+            'डिजिटल प्रविधिले धेरै ठूलो फड्को मारेको ...',
+            'यो सँगै, जिम्मेवारीलाई वहन गर्दै ...',
+            // more paragraphs
+        ],
+        imagePosition: 'right'
+    },
+    // other sections
+];
