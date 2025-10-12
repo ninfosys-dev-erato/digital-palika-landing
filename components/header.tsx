@@ -20,10 +20,10 @@ export const Header = () => {
     // NOTE: The 'signInText' variable and corresponding button have been removed.
     
     // Placeholder function for opening a search modal (to be implemented later)
-    const handleSearchClick = () => {
+ /*    const handleSearchClick = () => {
         console.log("Search functionality triggered.");
         // In a real app, this would open a search modal or navigate to a search page
-    };
+    }; */
 
     // Placeholder for mobile menu state (to be implemented later)
     const handleMobileMenuClick = () => {
@@ -63,13 +63,14 @@ export const Header = () => {
                 <div className="flex items-center space-x-4 sm:space-x-6">
 
                     {/* Search Icon Button */}
-                    <button
+                    {/* <button
                         aria-label="Search"
                         className="p-2 text-gray-500 hover:text-indigo-600 transition-colors rounded-full focus:outline-none focus:ring-2 focus:ring-indigo-500"
                         onClick={handleSearchClick}
                     >
                         <Search size={20} />
-                    </button>
+                    </button> */}
+                    
                     
                     {/* Language Toggle */}
                     <div className="flex items-center border border-gray-300 rounded-lg p-0.5 space-x-0.5 shadow-sm">
