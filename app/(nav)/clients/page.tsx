@@ -1,5 +1,3 @@
-// app/(nav)/clients/page.tsx
-
 "use client";
 
 import { Fragment } from 'react';
