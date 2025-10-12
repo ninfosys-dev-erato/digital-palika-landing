@@ -62,6 +62,11 @@ export interface FullSiteContent {
     aboutPage: {
         sections: AboutPageSection[];
     };
+        featuresPage: {
+        title: LocalizedString;
+        subtitle: LocalizedString;
+        items: FeatureItem[];
+    };
     footer: {
         companyName: LocalizedString;
         companyMoto: LocalizedString;
@@ -75,6 +80,12 @@ export interface FullSiteContent {
         copyright: LocalizedString;
         isoText: LocalizedString;
     };
+}
+export interface FeatureItem {
+    id: number;
+    icon: string; // Tailwind icon class or identifier (e.g., 'monitor', 'building', 'list')
+    title: LocalizedString;
+    description: LocalizedString;
 }
 
 export const siteData: FullSiteContent = {
@@ -172,6 +183,52 @@ export const siteData: FullSiteContent = {
             }
         ]
     },
+    featuresPage: {
+            title: { en: 'Core Digital Palika Features', ne: 'मुख्य डिजिटल पालिका विशेषताहरू' },
+            subtitle: { 
+                en: 'Our platform is built on six foundational pillars designed to simplify local governance and enhance citizen service.', 
+                ne: 'हाम्रो प्लेटफर्म स्थानीय शासनलाई सरल बनाउन र नागरिक सेवा बढाउन डिजाइन गरिएका छवटा आधारभूत स्तम्भहरूमा निर्मित छ।' 
+            },
+            items: [
+                {
+                    id: 1,
+                    icon: 'monitor', // Represents the desktop/web icon
+                    title: { en: 'Mobile & Web System', ne: 'मोबाइल र वेबमा' },
+                    description: { en: 'Integrated mobile and web-based system.', ne: 'एकीकृत मोबाइल र वेबमा आधारित प्रणाली' },
+                },
+                {
+                    id: 2,
+                    icon: 'building', // Represents the building/office icon
+                    title: { en: 'Information Hub', ne: 'जानकारी' },
+                    description: { en: 'Individual, business, and institutional data.', ne: 'व्यक्तिगत, व्यवसाय र संस्थागत जानकारी' },
+                },
+                {
+                    id: 3,
+                    icon: 'list-check', // Represents the checklist/daily activities icon
+                    title: { en: 'Daily Activities', ne: 'दैनिक गतिविधिहरू' },
+                    description: { en: 'Enhancing citizen participation in daily municipal activities.', ne: 'पालिकाको दैनिक गतिविधिहरूमा नागरिकको सक्रिय संलग्नता' },
+                },
+                {
+                    id: 4,
+                    icon: 'calculator', // Represents the calculator/online access icon
+                    title: { en: 'Online Access', ne: 'अनलाइनमा पहुँच' },
+                    description: { en: 'Access to citizen services and information online.', ne: 'नागरिकका सेवा र जानकारीको अनलाइनमा पहुँच' },
+                },
+                {
+                    id: 5,
+                    icon: 'info-circle', // Represents the info icon
+                    title: { en: 'Workflow Support', ne: 'कार्यसम्पादन गर्न सहयोग' },
+                    description: { en: 'Support for daily work execution in the municipality.', ne: 'पालिकाको दैनिक कार्यसम्पादन गर्न सहयोग' },
+                },
+                {
+                    id: 6,
+                    icon: 'video', // Represents the video icon
+                    title: { en: 'Client Information', ne: 'सेवाग्राहीलाई जानकारी' },
+                    description: { en: 'Providing information to clients via audio and video.', ne: 'सेवाग्राहीलाई अडियो, भिडियो मार्फत जानकारी' },
+                },
+            ],
+        },
+
     footer: {
         companyName: { en: 'Digital Palika', ne: 'डिजिटल पालिका' },
         companyMoto: { 
