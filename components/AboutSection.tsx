@@ -1,6 +1,6 @@
 "use client";
 
-import Image from 'next/image'; // Assuming you use Next.js Image component
+import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import { useLanguage } from '@/context/LanguageContext';
 import { AboutPageSection, StatisticItem } from '@/lib/siteData'; // Import types
@@ -62,29 +62,38 @@ const SectionRenderer = ({ section }: { section: AboutPageSection }) => {
     const textOrder = imageOnRight ? 'order-1' : 'order-2';
     const imageOrder = imageOnRight ? 'order-2' : 'order-1';
 
+    // Detect section type
+    const isIntroduction = section.id === 'introduction';
+    const isObjectives = section.id === 'objectives';
+
+    // Set image source based on section
+    let imageSrc = '';
+    if (isIntroduction) imageSrc = '/Introduction.png';
+    if (isObjectives) imageSrc = '/Objectives.png';
+
     return (
         <div 
-            className={`flex flex-col ${layoutClasses} gap-12 lg:gap-20 py-16 md:py-24 border-b border-slate-100 last:border-b-0`}
+            className={`flex flex-col ${layoutClasses} gap-8 lg:gap-12 py-12 md:py-16 border-b border-slate-100 last:border-b-0`}
             id={section.id}
         >
             {/* Text and Content Block */}
             <div className={`w-full md:w-1/2 ${textOrder}`}>
-                <h2 className="text-3xl md:text-4xl font-work-sans font-extrabold text-primary mb-6">
+                <h2 className={`text-xl md:text-2xl font-work-sans font-extrabold mb-4 ${(isIntroduction || isObjectives) ? 'text-blue-700' : 'text-primary'}`}>
                     {t(section.title)}
                 </h2>
 
                 {/* Render Paragraphs */}
                 {!isList && Array.isArray(section.content) && section.content.map((p, index) => (
-                    <p key={index} className="text-lg text-slate font-inter leading-relaxed mb-4">
+                    <p key={index} className={`text-sm md:text-base font-inter leading-relaxed mb-3 text-justify ${(isIntroduction || isObjectives) ? 'text-black' : 'text-slate'}`}>
                         {t(p)}
                     </p>
                 ))}
 
                 {/* Render Bulleted List (Objectives) */}
                 {isList && !Array.isArray(section.content) && section.content.type === 'list' && (
-                    <ul className="text-lg text-slate font-inter space-y-4 list-disc list-inside ml-4">
+                    <ul className="text-sm md:text-base text-black font-inter space-y-3 list-disc list-inside ml-4 text-justify">
                         {section.content.items.map((item, index) => (
-                            <li key={index} className="text-graphite">
+                            <li key={index} className="text-black">
                                 {t(item)}
                             </li>
                         ))}
@@ -93,15 +102,14 @@ const SectionRenderer = ({ section }: { section: AboutPageSection }) => {
             </div>
 
             {/* Image Block (Only if image path exists) */}
-            {section.image && (
+            {(isIntroduction || isObjectives) && (
                 <div className={`w-full md:w-1/2 flex justify-center items-start ${imageOrder}`}>
-                    <div className="w-full h-auto max-w-lg overflow-hidden rounded-xl shadow-2xl">
-                        {/* Placeholder Image Component - Replace with actual Image setup */}
+                    <div className="w-full h-auto max-w-md overflow-hidden rounded-xl">
                         <Image
-                            src={section.image} 
-                            alt={t(section.title)} 
-                            width={600} 
-                            height={400} 
+                            src={imageSrc}
+                            alt={t(section.title)}
+                            width={400}
+                            height={300}
                             style={{ width: '100%', height: 'auto' }}
                             priority
                             className="object-cover"
@@ -116,10 +124,6 @@ const SectionRenderer = ({ section }: { section: AboutPageSection }) => {
 export const AboutSection = ({ sections, stats }: AboutSectionProps) => {
     const { t } = useLanguage();
 
-    // Stats title is derived from the section content, but can be central here
-    const statsTitle = t({ en: 'Digital Palika Impact', ne: 'डिजिटल पालिका प्रभाव' });
-    const statsSubtitle = t({ en: 'Measurable results driving local governance forward.', ne: 'स्थानीय शासनलाई अगाडि बढाउने मापनयोग्य नतिजाहरू।' });
-
     return (
         <section className="bg-paper px-4">
             <div className="container mx-auto max-w-7xl">
@@ -129,29 +133,7 @@ export const AboutSection = ({ sections, stats }: AboutSectionProps) => {
                     <SectionRenderer key={section.id} section={section} />
                 ))}
 
-
-                {/* Animated Stats Section (Placed below content sections) */}
-                <div className="py-20 md:py-28">
-                    <div className="text-center max-w-4xl mx-auto mb-16">
-                        <h2 className="text-3xl md:text-4xl font-work-sans font-bold text-ink mb-2">
-                            {statsTitle}
-                        </h2>
-                        <p className="text-lg text-graphite font-inter">
-                            {statsSubtitle}
-                        </p>
-                    </div>
-
-                    <div className="grid grid-cols-2 lg:grid-cols-4 gap-y-12 gap-x-6 max-w-6xl mx-auto">
-                        {stats.map(stat => (
-                            <AnimatedStat 
-                                key={stat.id} 
-                                value={t(stat.value)} 
-                                label={t(stat.label)} 
-                            />
-                        ))}
-                    </div>
-                </div>
-
+                {/* Removed the Animated Stats Section */}
             </div>
         </section>
     );
