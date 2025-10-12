@@ -5,10 +5,7 @@ import { Header } from '@/components/header';
 import { Footer } from '@/components/footer';
 import { AboutSection } from '@/components/AboutSection';
 import { LanguageProvider, useLanguage, NavItem } from '@/context/LanguageContext';
-// NEW: Import the full site data object
 import { siteData, FullSiteContent, StatisticItem } from '@/lib/siteData';
-// REMOVE: The redundant StatItem, FooterLink, and SiteContent interfaces defined here.
-
 
 // --- Main About Page Component ---
 export default function AboutPage() {
@@ -17,7 +14,7 @@ export default function AboutPage() {
             <AboutContent />
         </LanguageProvider>
     );
-}
+};
 
 // --- Component to render the page content ---
 const AboutContent = () => {

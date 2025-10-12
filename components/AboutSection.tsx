@@ -104,12 +104,12 @@ const SectionRenderer = ({ section }: { section: AboutPageSection }) => {
             {/* Image Block (Only if image path exists) */}
             {(isIntroduction || isObjectives) && (
                 <div className={`w-full md:w-1/2 flex justify-center items-start ${imageOrder}`}>
-                    <div className="w-full h-auto max-w-md overflow-hidden rounded-xl">
+                    <div className="w-full h-auto max-w-lg overflow-hidden rounded-xl mt-8">
                         <Image
                             src={imageSrc}
                             alt={t(section.title)}
-                            width={400}
-                            height={300}
+                            width={800}
+                            height={800}
                             style={{ width: '100%', height: 'auto' }}
                             priority
                             className="object-cover"
