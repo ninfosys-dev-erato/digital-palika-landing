@@ -24,7 +24,7 @@ export function ClientsSection() {
                 <h2 className="text-4xl font-work-sans font-extrabold text-primary mb-4">
                     {title}
                 </h2>
-                <p className="text-xl text-ink max-w-3xl mx-auto mb-16">
+                <p className="text-xl text-black max-w-3xl mx-auto mb-16">
                     {subtitle}
                 </p>
 

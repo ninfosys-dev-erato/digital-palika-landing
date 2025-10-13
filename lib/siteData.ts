@@ -317,7 +317,7 @@ export const siteData: FullSiteContent = {
 };
 export interface ClientItem {
     id: number;
-    image: string; // e.g. '/images/clients/client1.png'
+    image: string; 
     name: LocalizedString;
 }
 
@@ -325,231 +325,231 @@ export const clients: ClientItem[] = [
     {
         id: 1,
         image: '/emblemofNepal.png',
-        name: { en: 'Lalitpur Metropolitan City', ne: 'गंगादेव गाउँपालिका, रोल्पा' }
+        name: { en: 'Gangadev Rural Municipality, Rolpa', ne: 'गंगादेव गाउँपालिका, रोल्पा' }
     },
      {
         id: 2,
         image: '/emblemofNepal.png',
-        name: { en: 'Kathmandu Metropolitan City', ne: 'काठमाडौँ महानगरपालिका, काठमाडौँ' }
+        name: { en: 'Kathmandu Metropolitan City, Kathmandu', ne: 'काठमाडौँ महानगरपालिका, काठमाडौँ' }
     },
         {
         id: 3,
         image: '/emblemofNepal.png',
-        name: { en: 'Lalitpur Metropolitan City', ne: 'रोहिणी गाउँपालिका, रुपन्देही' }
+        name: { en: 'Rohini Rural Municipality, Rupandehi', ne: 'रोहिणी गाउँपालिका, रुपन्देही' }
     },
         {
         id: 4,
         image: '/emblemofNepal.png',
-        name: { en: 'Lalitpur Metropolitan City', ne: 'घोराही उपमहानगरपालिका, घोराही, दाङ' }
+        name: { en: 'Ghorahi Sub-Metropolitan City, Ghorahi, Dang', ne: 'घोराही उपमहानगरपालिका, घोराही, दाङ' }
     },
         {
         id: 5,
         image: '/emblemofNepal.png',
-        name: { en: 'Lalitpur Metropolitan City', ne: 'अदानचुली गाउँपालिका, हुम्ला' }
+        name: { en: 'Adanchuli Rural Municipality, Humla', ne: 'अदानचुली गाउँपालिका, हुम्ला' }
     },
         {
         id: 6,
         image: '/emblemofNepal.png',
-        name: { en: 'Lalitpur Metropolitan City', ne: 'गैडहवा गाउँपालिका , रुपन्देही, नेपाल' }
+        name: { en: 'Gaidahawa Rural Municipality, Rupandehi, Nepal', ne: 'गैडहवा गाउँपालिका , रुपन्देही, नेपाल' }
     },
         {
         id: 7,
         image: '/emblemofNepal.png',
-        name: { en: 'Lalitpur Metropolitan City', ne: 'मधुवन नगरपालिका, मधुवन - ६ बर्दिया' }
+        name: { en: 'Madhuwan Municipality, Madhuwan -6 Bardiya', ne: 'मधुवन नगरपालिका, मधुवन - ६ बर्दिया' }
     },
         {
         id: 8,
         image: '/emblemofNepal.png',
-        name: { en: 'Lalitpur Metropolitan City', ne: 'जुनीचाँदे गाउँपालिका, मजकोट जाजरकोट' }
+        name: { en: 'Junichande Rural Municipality, Mazkot Jajarkot', ne: 'जुनीचाँदे गाउँपालिका, मजकोट जाजरकोट' }
     },
         {
         id: 9,
         image: '/emblemofNepal.png',
-        name: { en: 'Lalitpur Metropolitan City', ne: 'भेरी नगरपालिका, खलंगा, जाजरकोट, कर्णाली प्रदेश, नेपाल' }
+        name: { en: 'Bheri Municipality, Khalanga, Jajarkot, Karnali Province, Nepal', ne: 'भेरी नगरपालिका, खलंगा, जाजरकोट, कर्णाली प्रदेश, नेपाल' }
     },
         {
         id: 10,
         image: '/emblemofNepal.png',
-        name: { en: 'Lalitpur Metropolitan City', ne: 'बर्दिबास नगरपालिका, मोहत्तरी' }
+        name: { en: 'Bardibas Municipality, Mohattari', ne: 'बर्दिबास नगरपालिका, मोहत्तरी' }
     },
         {
         id: 11,
         image: '/emblemofNepal.png',
-        name: { en: 'Lalitpur Metropolitan City', ne: 'कुमाख गाउँपालिका, सल्यान' }
+        name: { en: 'Kumakh Rural Municipality, Salyan', ne: 'कुमाख गाउँपालिका, सल्यान' }
     },
         {
         id: 12,
         image: '/emblemofNepal.png',
-        name: { en: 'Lalitpur Metropolitan City', ne: 'जानकी गाउँपालिका, बाँके' }
+        name: { en: 'Janaki Rural Municipality, Banke', ne: 'जानकी गाउँपालिका, बाँके' }
     },
         {
         id: 13,
         image: '/emblemofNepal.png',
-        name: { en: 'Lalitpur Metropolitan City', ne: 'डुङ्गेश्वर गाउँपालिका, दैलेख ' }
+        name: { en: 'Dungeshwar Rural Municipality, Dailekh', ne: 'डुङ्गेश्वर गाउँपालिका, दैलेख' }
     },
         {
         id: 14,
         image: '/emblemofNepal.png',
-        name: { en: 'Lalitpur Metropolitan City', ne: 'बैजनाथ गाउँपालिका, रामपुर, बाँके' }
+        name: { en: 'Baijnath Rural Municipality, Rampur, Banke', ne: 'बैजनाथ गाउँपालिका, रामपुर, बाँके' }
     },
         {
         id: 15,
         image: '/emblemofNepal.png',
-        name: { en: 'Lalitpur Metropolitan City', ne: 'लालझाडी गाउँपालिका, सुदूरपश्चिम प्रदेश ,कंचनपुर' }
+        name: { en: 'Laljhadi Rural Municipality, Sudurpashchim Province, Kanchanpur', ne: 'लालझाडी गाउँपालिका, सुदूरपश्चिम प्रदेश ,कंचनपुर' }
     },
         {
         id: 16,
         image: '/emblemofNepal.png',
-        name: { en: 'Lalitpur Metropolitan City', ne: 'राजपुर गाउँपालिका, गंगदी, दाङ' }
+        name: { en: 'Rajpur Rural Municipality, Gangadi, Dang', ne: 'राजपुर गाउँपालिका, गंगदी, दाङ' }
     },
         {
         id: 17,
         image: '/emblemofNepal.png',
-        name: { en: 'Lalitpur Metropolitan City', ne: 'नरैनापुर गाउँपालिका, नरैनापुर, बाँके' }
+        name: { en: 'Narainapur Rural Municipality, Narainapur, Banke', ne: 'नरैनापुर गाउँपालिका, नरैनापुर, बाँके' }
     },
         {
         id: 18,
         image: '/emblemofNepal.png',
-        name: { en: 'Lalitpur Metropolitan City', ne: 'पुथा उत्तरगंगा गाउँपालिका, तकसेरा, रुकुम (पूर्वी भाग)' }
+        name: { en: 'Putha Uttarganga Rural Municipality, Taksera, Rukum (East)', ne: 'पुथा उत्तरगंगा गाउँपालिका, तकसेरा, रुकुम (पूर्वी भाग)' }
     },
         {
         id: 19,
         image: '/emblemofNepal.png',
-        name: { en: 'Lalitpur Metropolitan City', ne: 'चिङ्गाड गाउँपालिका, अवलचिङ्ग,सुर्खेत,कर्णाली प्रदेश, नेपाल' }
+        name: { en: 'Chingad Rural Municipality, Avalanching, Surkhet, Karnali Province, Nepal', ne: 'चिङ्गाड गाउँपालिका, अवलचिङ्ग, सुर्खेत, कर्णाली प्रदेश, नेपाल' }
     },
         {
         id: 20,
         image: '/emblemofNepal.png',
-        name: { en: 'Lalitpur Metropolitan City', ne: 'हिमाली गाउँपालिका, बाजुरा' }
+        name: { en: 'Himali Rural Municipality, Bajura', ne: 'हिमाली गाउँपालिका, बाजुरा' }
     },
         {
         id: 21,
         image: '/emblemofNepal.png',
-        name: { en: 'Lalitpur Metropolitan City', ne: 'नेपालगंज उपमहानगरपालिका , बाँके' }
+        name: { en: 'Nepalgunj Sub-Metropolitan City, Banke', ne: 'नेपालगंज उपमहानगरपालिका , बाँके' }
     },
         {
         id: 22,
         image: '/emblemofNepal.png',
-        name: { en: 'Lalitpur Metropolitan City', ne: 'खजुरा नगरपालिका, खजुरा, बाँके' }
+        name: { en: 'Khajura Municipality, Khajura, Banke', ne: 'खजुरा नगरपालिका, खजुरा, बाँके' }
     },
         {
         id: 23,
         image: '/emblemofNepal.png',
-        name: { en: 'Lalitpur Metropolitan City', ne: 'कोहलपुर नगरपालिका , बाँके' }
+        name: { en: 'Kohalpur Municipality, Banke', ne: 'कोहलपुर नगरपालिका , बाँके' }
     },
         {
         id: 24,
         image: '/emblemofNepal.png',
-        name: { en: 'Lalitpur Metropolitan City', ne: 'मुड्केचुला गाउँपालिका, डोल्पा' }
+        name: { en: 'Mudkechula Rural Municipality, Dolpa', ne: 'मुड्केचुला गाउँपालिका, डोल्पा' }
     },
         {
         id: 25,
         image: '/emblemofNepal.png',
-        name: { en: 'Lalitpur Metropolitan City', ne: 'बागचौर नगरपालिका, सल्यान' }
+        name: { en: 'Bagchaur Municipality, Salyan', ne: 'बागचौर नगरपालिका, सल्यान' }
     },
         {
         id: 26,
         image: '/emblemofNepal.png',
-        name: { en: 'Lalitpur Metropolitan City', ne: 'भूमि व्यवस्था, कृषि तथा सहकारी मन्त्रालय, मधेश प्रदेश' }
+        name: { en: 'Ministry of Land Management, Agriculture and Cooperatives, Madhesh Province', ne: 'भूमि व्यवस्था, कृषि तथा सहकारी मन्त्रालय, मधेश प्रदेश' }
     },
         {
         id: 27,
         image: '/emblemofNepal.png',
-        name: { en: 'Lalitpur Metropolitan City', ne: 'कृषि तथा भूमि व्यवस्था मन्त्रालय, गण्डकी प्रदेश' }
+        name: { en: 'Ministry of Agriculture and Land Management, Gandaki Province', ne: 'कृषि तथा भूमि व्यवस्था मन्त्रालय, गण्डकी प्रदेश' }
     },
         {
         id: 28,
         image: '/emblemofNepal.png',
-        name: { en: 'Lalitpur Metropolitan City', ne: 'भूमि व्यवस्था, कृषि तथा सहकारी मन्त्रालय, कर्णाली प्रदेश' }
+        name: { en: 'Ministry of Land Management, Agriculture and Cooperatives, Karnali Province', ne: 'भूमि व्यवस्था, कृषि तथा सहकारी मन्त्रालय, कर्णाली प्रदेश' }
     },
         {
         id: 29,
         image: '/emblemofNepal.png',
-        name: { en: 'Lalitpur Metropolitan City', ne: 'भौतिक पूर्वाधार तथा शहरी विकास मन्त्रालय, कर्णाली प्रदेश' }
+        name: { en: 'Ministry of Physical Infrastructure and Urban Development, Karnali Province', ne: 'भौतिक पूर्वाधार तथा शहरी विकास मन्त्रालय, कर्णाली प्रदेश' }
     },
         {
         id: 30,
         image: '/emblemofNepal.png',
-        name: { en: 'Lalitpur Metropolitan City', ne: 'उद्योग, पर्यटन, वन तथा वातावरण मन्त्रालय, सुदूरपश्चिम प्रदेश' }
+        name: { en: 'Ministry of Industry, Tourism, Forest and Environment, Sudurpashchim Province', ne: 'उद्योग, पर्यटन, वन तथा वातावरण मन्त्रालय, सुदूरपश्चिम प्रदेश' }
     },
         {
         id: 31,
         image: '/emblemofNepal.png',
-        name: { en: 'Lalitpur Metropolitan City', ne: 'बुढानीलकण्ठ नगरपालिका, हात्तीगौडा, काठमाण्डौ' }
+        name: { en: 'Budhanilkantha Municipality, Hattigauda, Kathmandu', ne: 'बुढानीलकण्ठ नगरपालिका, हात्तीगौडा, काठमाण्डौ' }
     },
         {
         id: 32,
         image: '/emblemofNepal.png',
-        name: { en: 'Lalitpur Metropolitan City', ne: 'कृषि अनुशन्धान निर्देशनालय, नेपालगंज' }
+        name: { en: 'Agriculture Research Directorate, Nepalgunj', ne: 'कृषि अनुशन्धान निर्देशनालय, नेपालगंज' }
     },
         {
         id: 33,
         image: '/emblemofNepal.png',
-        name: { en: 'Lalitpur Metropolitan City', ne: 'कृषि विकास निर्देशनालय, कर्णाली प्रदेश' }
+        name: { en: 'Directorate of Agriculture Development, Karnali Province.', ne: 'कृषि विकास निर्देशनालय, कर्णाली प्रदेश' }
     },
         {
         id: 34,
         image: '/emblemofNepal.png',
-        name: { en: 'Lalitpur Metropolitan City', ne: 'कृषि विकास निर्देशनालय, सुदूरपश्चिममा प्रदेश' }
+        name: { en: 'Directorate of Agriculture Development, Sudurpashchim Province.', ne: 'कृषि विकास निर्देशनालय, सुदूरपश्चिममा प्रदेश' }
     },
         {
         id: 35,
         image: '/emblemofNepal.png',
-        name: { en: 'Lalitpur Metropolitan City', ne: 'पसुपंक्षी विकास निर्देशनालय , सुदूरपश्चिममा प्रदेश' }
+        name: { en: 'Directorate of Livestock Development, Sudurpashchim Province.', ne: 'पशुपंक्षी विकास निर्देशनालय , सुदूरपश्चिममा प्रदेश' }
     },
         {
         id: 36,
         image: '/emblemofNepal.png',
-        name: { en: 'Lalitpur Metropolitan City', ne: 'काठमाडौं विश्वविद्यालय, धुलिखेल, काभ्रे' }
+        name: { en: 'Kathmandu University, Dhulikhel, Kavre', ne: 'काठमाडौं विश्वविद्यालय, धुलिखेल, काभ्रे' }
     },
         {
         id: 37,
         image: '/emblemofNepal.png',
-        name: { en: 'Lalitpur Metropolitan City', ne: 'सेभ द चिल्ड्रेन, काठमाडौं, नेपाल' }
+        name: { en: 'Save the Children, Kathmandu, Nepal', ne: 'सेभ द चिल्ड्रेन, काठमाडौं, नेपाल' }
     },
         {
         id: 38,
         image: '/emblemofNepal.png',
-        name: { en: 'Lalitpur Metropolitan City', ne: 'त्रिभुवन विश्वविद्यालय, कीर्तिपुर, नेपाल' }
+        name: { en: 'Tribhuvan University, Kirtipur, Nepal', ne: 'त्रिभुवन विश्वविद्यालय, कीर्तिपुर, नेपाल' }
     },
         {
         id: 39,
         image: '/emblemofNepal.png',
-        name: { en: 'Lalitpur Metropolitan City', ne: 'राजपुर गाउँपालिका , गंगदी, दाङ' }
+        name: { en: 'Rajpur Rural Municipality, Gangadi, Dang', ne: 'राजपुर गाउँपालिका , गंगदी, दाङ' }
     },
         {
         id: 40,
         image: '/emblemofNepal.png',
-        name: { en: 'Lalitpur Metropolitan City', ne: 'मधुवन नगरपालिका, बर्दिया, नेपाल' }
+        name: { en: 'Madhuban Municipality, Bardiya, Nepal', ne: 'मधुवन नगरपालिका, बर्दिया, नेपाल' }
     },
         {
         id: 41,
         image: '/emblemofNepal.png',
-        name: { en: 'Lalitpur Metropolitan City', ne: 'उद्योग विभाग, त्रिपुरेश्वर, काठमाडौं' }
+        name: { en: 'Department of Industry, Tripureshwor, Kathmandu', ne: 'उद्योग विभाग, त्रिपुरेश्वर, काठमाडौं' }
     },
     {
         id: 42,
         image: '/emblemofNepal.png',
-        name: { en: 'Lalitpur Metropolitan City', ne: 'कृषि विकास निर्देशनालय, पोखरा, नेपाल' }
+        name: { en: 'Directorate of Agricultural Development, Pokhara, Nepal', ne: 'कृषि विकास निर्देशनालय, पोखरा, नेपाल' }
     },
      {
         id: 43,
         image: '/emblemofNepal.png',
-        name: { en: 'Lalitpur Metropolitan City', ne: 'स्वास्थ्य सेवा निर्देशनालय, वीरेन्द्रनगर, सुर्खेत' }
+        name: { en: 'Directorate of Health Services, Birendranagar, Surkhet', ne: 'स्वास्थ्य सेवा निर्देशनालय, वीरेन्द्रनगर, सुर्खेत' }
     },
      {
         id: 44,
         image: '/emblemofNepal.png',
-        name: { en: 'Lalitpur Metropolitan City', ne: 'आदर्श गाउँपालिका, डोटी सुदूरपश्चिम प्रदेश' }
+        name: { en: 'Adarsha Rural Municipality, Doti, Sudurpashchim Province', ne: 'आदर्श गाउँपालिका, डोटी सुदूरपश्चिम प्रदेश' }
     },
      {
         id: 45,
         image: '/emblemofNepal.png',
-        name: { en: 'Lalitpur Metropolitan City', ne: 'सूर्यविनायक नगरपालिका, भक्तपुर, बागमती प्रदेश' }
+        name: { en: 'Suryabinayak Municipality, Bhaktapur, Bagmati Province', ne: 'सूर्यविनायक नगरपालिका, भक्तपुर, बागमती प्रदेश' }
     },
      {
         id: 46,
         image: '/emblemofNepal.png',
-        name: { en: 'Lalitpur Metropolitan City', ne: 'ललितपुर महानगरपालिका, ललितपुर बागमती प्रदेश' }
+        name: { en: 'Lalitpur Metropolitan City, Lalitpur Bagmati Province', ne: 'ललितपुर महानगरपालिका, ललितपुर बागमती प्रदेश' }
     },
 ];
