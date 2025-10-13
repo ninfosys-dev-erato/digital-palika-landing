@@ -1,5 +1,6 @@
 "use client";
 
+import { clients } from '@/lib/siteData'; 
 import { useLanguage } from '@/context/LanguageContext';
 
 export function ClientsSection() {
@@ -27,16 +28,20 @@ export function ClientsSection() {
                     {subtitle}
                 </p>
 
-                {/* Placeholder Grid for Client Logos/Cards */}
+                {/* Clients Grid */}
                 <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
-                    {/* Map through your actual client data here */}
-                    {Array.from({ length: 12 }).map((_, index) => (
-                        <div 
-                            key={index} 
-                            className="p-4 flex items-center justify-center h-24 bg-white shadow-lg rounded-lg border border-slate-200"
+                    {clients.map(client => (
+                        <div
+                            key={client.id}
+                            className="p-4 flex flex-col items-center justify-center h-42 bg-white rounded-lg border border-slate-300"
                         >
-                            <span className="text-graphite font-inter text-sm">
-                                Client {index + 1} Logo
+                            <img
+                                src={client.image}
+                                alt={t(client.name)}
+                                className="w-12 h-12 object-contain mb-2"
+                            />
+                            <span className="text-black font-inter text-sm text-center">
+                                {t(client.name)}
                             </span>
                         </div>
                     ))}
