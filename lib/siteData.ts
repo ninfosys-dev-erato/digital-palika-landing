@@ -4,16 +4,16 @@ import { LocalizedString, NavItem } from '../context/LanguageContext';
 
 export interface StatisticItem {
     id: number;
-    value: LocalizedString; // e.g., '७० +' / '70 +'
-    label: LocalizedString; // e.g., 'सेवा प्रवाह स्थानीय तह' / 'Service-providing Local Levels'
+    value: LocalizedString; 
+    label: LocalizedString;
 }
 
 export interface ModuleItem {
     id: number;
     label: LocalizedString;
-    iconName: string; // Used to pick the icon SVG (e.g., 'clipboardCheck')
-    colorClass: string; // Tailwind color class for card background/accent
-    description?: LocalizedString; // Optional description
+    iconName: string; 
+    colorClass: string; 
+    description?: LocalizedString; 
 }
 
 export interface FooterLinkGroup {
@@ -28,11 +28,11 @@ export interface ContactDetail {
 
 // NEW INTERFACE FOR ABOUT PAGE SECTIONS
 export interface AboutPageSection {
-    id: string; // "introduction" or "objectives"
+    id: string;
     title: LocalizedString;
-    content: (LocalizedString | { type: 'list'; items: LocalizedString[] }); // Can be paragraphs or a list
-    image?: string; // Path to the image
-    imagePosition?: 'left' | 'right'; // For layout
+    content: LocalizedString[] | { type: 'list'; items: LocalizedString[] };
+    image?: string;
+    imagePosition?: 'left' | 'right';
 }
 
 
@@ -83,7 +83,7 @@ export interface FullSiteContent {
 }
 export interface FeatureItem {
     id: number;
-    icon: string; // Tailwind icon class or identifier (e.g., 'monitor', 'building', 'list')
+    icon: string; 
     title: LocalizedString;
     description: LocalizedString;
 }
@@ -110,7 +110,10 @@ export const siteData: FullSiteContent = {
     },
     statistics: [
         { id: 1, value: { en: '70 +', ne: '७० +' }, label: { en: 'Service-providing Local Levels', ne: 'सेवा प्रवाह स्थानीय तह' } },
-        { id: 2, value: { en: '8,00,000 +', ne: '८,००,००० +' }, label: { en: 'लाभान्वित नागरिक' } },
+        { id: 2, value: { en: '8,00,000 +', ne: '८,००,००० +' }, label: {
+            en: 'लाभान्वित नागरिक',
+            ne: ''
+        } },
         { id: 3, value: { en: '2,500 +', ne: '२,५०० +' }, label: { en: 'Active Professionals', ne: 'लाभान्वित प्रतिनिधिहरु' } },
         { id: 4, value: { en: '300 +', ne: '३०० +' }, label: { en: 'Exclusive Features', ne: 'खुसी सेवाग्राहीहरु' } }
     ],

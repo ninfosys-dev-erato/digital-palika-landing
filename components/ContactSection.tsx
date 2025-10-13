@@ -1,7 +1,6 @@
 "use client";
 
 import React from 'react';
-import Link from 'next/link';
 import { LocalizedString } from '@/context/LanguageContext';
 
 // --- Add missing types ---
@@ -43,10 +42,10 @@ interface ContactSectionProps {
     breadcrumb: string;
     details: ContactDetails;
     formLabels: ContactFormLabels;
-    t: (text: LocalizedString) => string; // The translator function
+    t: (text: LocalizedString) => string; 
 }
 
-export const ContactSection = ({ title, breadcrumb, details, formLabels, t }: ContactSectionProps) => {
+export const ContactSection = ({ title, details, formLabels, t }: ContactSectionProps) => {
 
     // Simple handler for form submission (replace with actual logic later)
     const handleSubmit = (e: React.FormEvent) => {
@@ -57,13 +56,6 @@ export const ContactSection = ({ title, breadcrumb, details, formLabels, t }: Co
     return (
         <section className="bg-paper py-16 md:py-24 px-4">
             <div className="container mx-auto max-w-6xl">
-
-                {/* Breadcrumb */}
-                <div className="text-center mb-10">
-                    <p className="text-sm text-slate font-inter">
-                        {breadcrumb}
-                    </p>
-                </div>
                 
                 {/* Section Title */}
                 <h1 className="text-4xl md:text-5xl font-work-sans font-bold text-ink text-center mb-16">
@@ -205,7 +197,7 @@ export const ContactSection = ({ title, breadcrumb, details, formLabels, t }: Co
                                     rows={5}
                                     placeholder={t(formLabels.message)}
                                     required
-                                    className="w-full pl-10 pr-4 py-3 border border-slate/20 rounded-md focus:ring-accent focus:border-accent font-inter"
+                                    className="w-full pl-10 pr-4 py-3 border border-slate/20 rounded-md focus:ring-accent focus:border-accent font-inter text-black"
                                 ></textarea>
                             </div>
                         </div>

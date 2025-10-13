@@ -11,45 +11,6 @@ interface AboutSectionProps {
     stats: StatisticItem[];
 }
 
-// --- UTILITY HOOKS & COMPONENTS (Keeping your Animation logic) ---
-
-// A custom hook for the number counting animation
-const useCountUp = (end: number, duration: number = 2000) => {
-    const [count, setCount] = useState(0);
-
-    useEffect(() => {
-        let startTime: number;
-        const animationFrame = (timestamp: number) => {
-            if (!startTime) startTime = timestamp;
-            const progress = Math.min((timestamp - startTime) / duration, 1);
-            setCount(Math.floor(progress * end));
-            if (progress < 1) {
-                requestAnimationFrame(animationFrame);
-            }
-        };
-        requestAnimationFrame(animationFrame);
-    }, [end, duration]);
-
-    return count;
-};
-
-const AnimatedStat = ({ value, label }: { value: string; label: string }) => {
-    // Safely parse the number, removing non-numeric characters (like ' +')
-    const cleanedValue = value.replace(/[^\d]/g, ''); 
-    const numValue = parseInt(cleanedValue, 10);
-    const count = useCountUp(isNaN(numValue) ? 0 : numValue);
-
-    return (
-        <div className="text-center">
-            <p className="text-5xl md:text-6xl font-inter-tight font-bold text-accent">
-                {count}{value.includes('+') ? '+' : ''}
-            </p>
-            <p className="text-slate font-inter mt-2">{label}</p>
-        </div>
-    );
-};
-
-
 // --- MAIN ABOUT SECTION COMPONENT ---
 
 const SectionRenderer = ({ section }: { section: AboutPageSection }) => {
@@ -78,7 +39,7 @@ const SectionRenderer = ({ section }: { section: AboutPageSection }) => {
         >
             {/* Text Block */}
             <div className={`w-full md:w-1/2 ${textOrder}`}>
-                <h2 className={`text-xl md:text-2xl font-work-sans font-extrabold mb-4 ${(isIntroduction || isObjectives) ? 'text-blue-700' : 'text-primary'}`}>
+                <h2 className={`text-3xl font-work-sans font-extrabold text-primary mb-4 ${(isIntroduction || isObjectives) ? 'text-3xl' : 'text-primary'}`}>
                     {t(section.title)}
                 </h2>
                 {/* Paragraphs */}
@@ -136,16 +97,3 @@ export const AboutSection = ({ sections, stats }: AboutSectionProps) => {
     );
 };
 
-const aboutSections: AboutPageSection[] = [
-    {
-        id: 'introduction',
-        title: 'परिचय',
-        content: [
-            'डिजिटल प्रविधिले धेरै ठूलो फड्को मारेको ...',
-            'यो सँगै, जिम्मेवारीलाई वहन गर्दै ...',
-            // more paragraphs
-        ],
-        imagePosition: 'right'
-    },
-    // other sections
-];
