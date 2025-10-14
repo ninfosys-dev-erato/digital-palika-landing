@@ -12,14 +12,11 @@ module.exports = {
     extend: {
       colors: {
         // Mapped to CSS variables in globals.css
-        'primary': 'var(--color-primary)',   // Use: bg-primary, text-primary
+        'primary': 'text-blue-900',   // Use: bg-primary, text-primary
         'secondary': 'var(--color-secondary)', // Use: bg-secondary, text-secondary
         'accent': 'var(--color-accent)',     // Use: bg-accent, text-accent
         'paper': 'var(--color-paper)',       // Use: bg-paper
-        'ink': 'var(--color-ink)',           // Use: text-ink
-        // Add other existing colors if they were defined in your original config
-        'graphite': '#4A4E69', 
-        'slate': '#8d95b5',    
+        'ink': 'var(--color-ink)',           // Use: text-ink   
       },
       // ... rest of theme.extend
     },

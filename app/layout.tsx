@@ -57,7 +57,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Ninja Infosys — Global Consulting',
     description: 'Ninja Infosys is a global consulting company specializing in digital transformation, strategy, and technology solutions.',
-    creator: '@yourtwitterhandle', // <<< IMPORTANT: CHANGE THIS 
+    creator: '@', 
     images: ['/file.svg'], 
   },
   robots: {
