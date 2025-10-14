@@ -36,10 +36,10 @@ const HomeContent = () => {
       <section className="bg-gradient-to-br from-blue-900 via-blue-500 to-blue-600 text-white min-h-screen flex items-center">
         <div className="container mx-auto px-4 flex flex-col md:flex-row items-center gap-12">
           <div className="flex-1">
-            <h1 className="text-4xl md:text-5xl font-extrabold mb-4 leading-tight">
+            <h1 className="text-4xl md:text-5xl font-extrabold mb-4 leading-tight" style={{ marginLeft: "110px" }}>
               {t({ en: 'Digital Municipality (ERP Software)', ne: 'डिजिटल पालिका (ERP Software)' })}
             </h1>
-            <p className="text-lg md:text-xl mb-6 font-medium text-justify">
+            <p className="text-lg md:text-xl mb-6 font-medium text-justify" style={{ marginLeft: "110px" }}>
               {t({
                 en: "Digital Municipality is a system designed to save time and make citizens’ tasks easier. It empowers every local body with information and modern technology, aiming to transform them into technology-enabled and technology-friendly digital municipalities.",
                 ne: "समयको बचत र जनताको काम सहज रूपमा सम्पन्न गर्नको लागि र हरेक स्थानीय निकायलाई सूचना तथा आधुनिक प्रविधिको माध्यमबाट सशक्त बनाउँदै प्रविधि युक्त, प्रविधि मैत्री डिजिटल पालिकाको रूपमा रूपान्तरण गर्न परिकल्पना गरिएको एक प्रणाली डिजिटल पालिका हो।"
@@ -47,7 +47,7 @@ const HomeContent = () => {
             </p>
             <a
               href="/contact"
-              className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-lg shadow transition"
+              className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-lg shadow transition" style={{ marginLeft: "110px" }}
             >
               {t({ en: 'Book Demo', ne: 'डेमो बुक गर्नुहोस्' })}
             </a>
