@@ -47,7 +47,7 @@ const HomeContent = () => {
             </p>
             <a
               href="/contact"
-              className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-lg shadow transition" style={{ marginLeft: "110px" }}
+              className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-lg shadow transition" style={{ marginLeft: "100px" }}
             >
               {t({ en: 'Book Demo', ne: 'डेमो बुक गर्नुहोस्' })}
             </a>

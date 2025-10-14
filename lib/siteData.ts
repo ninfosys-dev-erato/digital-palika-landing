@@ -174,7 +174,7 @@ export const siteData: FullSiteContent = {
                         ne: '“आउनुहोस्, तपाइँहरूको साथ र सहयोग लिएर हामी सबै पालिकाहरूलाई पूर्ण प्रविधिमैत्री बनाऔं ।”'
                     }
                 ],
-                image: '/Introduction.png',
+                image: '/Itro.png',
                 imagePosition: 'right'
             },
             {
