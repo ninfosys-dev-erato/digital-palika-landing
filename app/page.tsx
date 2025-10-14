@@ -1,6 +1,6 @@
 "use client";
 
-import { Fragment } from 'react';
+import { Fragment, useState, useEffect } from 'react';
 import { Header } from '@/components/header';
 import { Footer } from '@/components/footer';
 import { LanguageProvider, useLanguage } from '@/context/LanguageContext';
@@ -15,6 +15,34 @@ export default function Home() {
 
 const HomeContent = () => {
   const { t, lang } = useLanguage();
+  const [showScrollTop, setShowScrollTop] = useState(false);
+
+  // Function to handle smooth scrolling down to stats
+  const handleScrollToStats = () => {
+    const statsSection = document.getElementById('stats');
+    if (statsSection) {
+      statsSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  // Function to handle smooth scrolling back to top
+  const handleScrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  useEffect(() => {
+    const checkScrollTop = () => {
+      // Show button when user scrolls down 400px
+      if (!showScrollTop && window.scrollY > 400) {
+        setShowScrollTop(true);
+      } else if (showScrollTop && window.scrollY <= 400) {
+        setShowScrollTop(false);
+      }
+    };
+
+    window.addEventListener('scroll', checkScrollTop);
+    return () => window.removeEventListener('scroll', checkScrollTop);
+  }, [showScrollTop]);
 
   return (
     <Fragment>
@@ -24,7 +52,7 @@ const HomeContent = () => {
           { label: { en: 'Home', ne: 'गृह पृष्ठ' }, href: '/' },
           { label: { en: 'About Us', ne: 'हाम्रो बारेमा' }, href: '/about' },
           { label: { en: 'Our Clients', ne: 'हाम्रो ग्राहकहरु' }, href: '/clients' },
-          { label: { en: 'Specialties', ne: 'विशेषताहरु' }, href: '/specialties' },
+          { label: { en: 'Features', ne: 'विशेषताहरु' }, href: '/features' },
           { label: { en: 'Contact', ne: 'सम्पर्क' }, href: '/contact' },
         ]}
         currentLang={lang}
@@ -33,7 +61,7 @@ const HomeContent = () => {
       />
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-blue-900 via-blue-500 to-blue-600 text-white min-h-screen flex items-center">
+      <section className="bg-gradient-to-br from-blue-900 via-blue-500 to-blue-600 text-white min-h-screen flex items-center relative">
         <div className="container mx-auto px-4 flex flex-col md:flex-row items-center gap-12">
           <div className="flex-1">
             <h1 className="text-4xl md:text-5xl font-extrabold mb-4 leading-tight" style={{ marginLeft: "110px" }}>
@@ -61,10 +89,26 @@ const HomeContent = () => {
             />
           </div>
         </div>
+
+        {/* --- SCROLL DOWN ARROW --- */}
+        <div className="absolute bottom-20 left-1/2 -translate-x-1/2">
+          <button
+            onClick={handleScrollToStats}
+            className="p-3 text-white bg-white/20 rounded-full animate-bounce focus:outline-none hover:bg-white/30 transition-colors"
+            aria-label="Scroll down"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+        </div>
       </section>
 
+      {/* --- INVISIBLE ANCHOR FOR SMOOTHER SCROLLING --- */}
+      <div id="stats" style={{ position: 'relative', top: '-80px' }}></div>
+
       {/* Stats Section */}
-      <section className="bg-white py-12">
+      <section className="bg-white pt-12">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
             {/* Stat Card */}
@@ -115,7 +159,7 @@ const HomeContent = () => {
           </div>
 
           {/* Features Section as a Card */}
-          <section className="w-full py-12 bg-gray-50">
+          <section className="w-full pb-12">
             <div className="container mx-auto px-4">
               <div className="bg-blue-50/60 border border-blue-100 w-full max-w-6xl mx-auto p-8 md:p-12" style={{ borderRadius: 0 }}>
                 <div className="text-center mb-8">
@@ -224,6 +268,16 @@ const HomeContent = () => {
                     </span>
                   </div>
                 </div>
+
+                <div className="text-center mt-8">
+                    <a
+                      href="/features"
+                      className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 shadow transition"
+                    >
+                      {t({ en: 'See More Details', ne: 'थप विवरण हेर्नुहोस्' })}
+                    </a>
+                </div>
+                
               </div>
             </div>
           </section>
@@ -242,6 +296,19 @@ const HomeContent = () => {
         ]}
         onOfficesClick={() => {}}
       />
+
+      {/* --- NEW SCROLL TO TOP BUTTON --- */}
+      {showScrollTop && (
+        <button
+          onClick={handleScrollToTop}
+          className="fixed bottom-10 right-10 p-3 rounded-full bg-blue-600 text-white shadow-lg hover:bg-blue-700 transition-all duration-300 z-50"
+          aria-label="Scroll to top"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
+          </svg>
+        </button>
+      )}
     </Fragment>
   );
 };
