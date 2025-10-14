@@ -58,7 +58,7 @@ export const ContactSection = ({ title, details, formLabels, t }: ContactSection
             <div className="container mx-auto max-w-6xl">
                 
                 {/* Section Title */}
-                <h1 className="text-2xl md:text-5xl font-work-sans font-bold text-blue-500 text-center mb-16">
+                <h1 className="text-2xl md:text-5xl font-work-sans font-bold text-blue-900 text-center mb-16">
                     {title}
                 </h1>
 
@@ -67,14 +67,14 @@ export const ContactSection = ({ title, details, formLabels, t }: ContactSection
                     
                     {/* Phone */}
                     <div className="flex flex-col items-center">
-                        <div className="text-blue-500 mb-4">
+                        <div className="text-blue-900 mb-4">
                             <Icon name="Phone" className="w-8 h-8"/>
                         </div>
                         <h2 className="text-lg font-work-sans font-semibold text-black mb-2">
                             {t({ en: 'Phone', ne: 'फोन' })}
                         </h2>
                         {details.phoneNumbers.map((phone, index) => (
-                            <a key={index} href={`tel:${phone}`} className="text-blue-700 font-inter transition-colors text-sm">
+                            <a key={index} href={`tel:${phone}`} className="text-blue-900 font-inter transition-colors text-sm">
                                 नेपालभित्र: {phone}
                             </a>
                         ))}
@@ -82,20 +82,20 @@ export const ContactSection = ({ title, details, formLabels, t }: ContactSection
 
                     {/* Email */}
                     <div className="flex flex-col items-center">
-                        <div className="text-blue-500 mb-4">
+                        <div className="text-blue-900 mb-4">
                             <Icon name="Mail" className="w-8 h-8"/>
                         </div>
                         <h2 className="text-lg font-work-sans font-semibold text-black mb-2">
                             {t({ en: 'Email', ne: 'इमेल' })}
                         </h2>
-                        <a href={`mailto:${details.email}`} className="text-blue-700 hover:text-accent font-inter transition-colors">
+                        <a href={`mailto:${details.email}`} className="text-blue-900 hover:text-accent font-inter transition-colors">
                             {details.email}
                         </a>
                     </div>
 
                     {/* Address */}
                     <div className="flex flex-col items-center">
-                        <div className="text-blue-500 mb-4">
+                        <div className="text-blue-900 mb-4">
                             <Icon name="MapPin" className="w-8 h-8"/>
                         </div>
                         <h2 className="text-lg font-work-sans font-semibold text-black mb-2">
@@ -205,7 +205,7 @@ export const ContactSection = ({ title, details, formLabels, t }: ContactSection
                         {/* Submit Button */}
                         <button
                             type="submit"
-                            className="inline-flex items-center justify-center px-8 py-3 text-white font-work-sans font-semibold bg-blue-500 hover:bg-blue-700 transition-all duration-300 ease-in-out"
+                            className="inline-flex items-center justify-center px-8 py-3 text-white font-work-sans font-semibold bg-blue-700 hover:bg-blue-700 transition-all duration-300 ease-in-out"
                         >
                             {t(formLabels.button)}
                         </button>

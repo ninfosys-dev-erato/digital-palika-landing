@@ -72,7 +72,7 @@ const HomeContent = () => {
               <span className="bg-blue-100 text-blue-700 p-4 mb-4">
                 <svg width="32" height="32" fill="none" stroke="currentColor" strokeWidth="2"><path d="M7 13h10M7 17h10M7 9h10M5 7v10a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2z"/></svg>
               </span>
-              <div className="text-3xl font-bold text-blue-500 mb-2">
+              <div className="text-3xl font-bold text-blue-900 mb-2">
                 {lang === 'ne' ? '७० +' : '70 +'}
               </div>
               <div className="text-gray-600 text-center">
@@ -83,7 +83,7 @@ const HomeContent = () => {
               <span className="bg-blue-100 text-blue-700 p-4 mb-4">
                 <svg width="32" height="32" fill="none" stroke="currentColor" strokeWidth="2"><path d="M17 21v-2a4 4 0 00-8 0v2M12 11a4 4 0 110-8 4 4 0 010 8zm6 8v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
               </span>
-              <div className="text-3xl font-bold text-blue-500 mb-2">
+              <div className="text-3xl font-bold text-blue-900 mb-2">
                 {lang === 'ne' ? '८,००,००० +' : '800,000 +'}
               </div>
               <div className="text-gray-600 text-center">
@@ -91,10 +91,10 @@ const HomeContent = () => {
               </div>
             </div>
             <div className="flex flex-col items-center bg-gradient-to-br from-blue-50 to-white p-8 hover:scale-105 transition">
-              <span className="bg-blue-100 text-blue-500 p-4 mb-4">
+              <span className="bg-blue-100 text-blue-900 p-4 mb-4">
                 <svg width="32" height="32" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 17v-2a4 4 0 018 0v2M16 11a4 4 0 110-8 4 4 0 010 8z"/></svg>
               </span>
-              <div className="text-3xl font-bold text-blue-500 mb-2">
+              <div className="text-3xl font-bold text-blue-900 mb-2">
                 {lang === 'ne' ? '२५०० +' : '2500 +'}
               </div>
               <div className="text-gray-600 text-center">
@@ -102,10 +102,10 @@ const HomeContent = () => {
               </div>
             </div>
             <div className="flex flex-col items-center bg-gradient-to-br from-blue-50 to-white p-8 hover:scale-105 transition">
-              <span className="bg-blue-100 text-blue-500 p-4 mb-4">
+              <span className="bg-blue-100 text-blue-900 p-4 mb-4">
                 <svg width="32" height="32" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 21a9 9 0 100-18 9 9 0 000 18zm0-4a5 5 0 100-10 5 5 0 000 10z"/></svg>
               </span>
-              <div className="text-3xl font-bold text-blue-500 mb-2">
+              <div className="text-3xl font-bold text-blue-900 mb-2">
                 {lang === 'ne' ? '३०० +' : '300 +'}
               </div>
               <div className="text-gray-600 text-center">
@@ -119,7 +119,7 @@ const HomeContent = () => {
             <div className="container mx-auto px-4">
               <div className="bg-blue-50/60 border border-blue-100 w-full max-w-6xl mx-auto p-8 md:p-12" style={{ borderRadius: 0 }}>
                 <div className="text-center mb-8">
-                  <h2 className="text-2xl md:text-3xl font-bold text-blue-500 mb-2">
+                  <h2 className="text-2xl md:text-3xl font-bold text-blue-900 mb-2">
                     {lang === 'ne' ? 'विशेषताहरु' : 'Features'}
                   </h2>
                   <p className="text-gray-700 max-w-2xl mx-auto">
