@@ -67,14 +67,14 @@ export const Footer = () => {
 
                     {/* Column 1: Company Info & Moto */}
                     <div className="lg:col-span-2 space-y-4">
-                        <h3 className="text-3xl font-extrabold text-white">
+                        <h3 className="text-3xl font-extrabold text-white" style={{ marginLeft: "-20px" }}>
                             {t(footerData.companyName)}
                         </h3>
-                        <p className="text-gray-400 max-w-sm">
+                        <p className="text-gray-400 max-w-sm" style={{ marginLeft: "-20px" }}>
                             {t(footerData.companyMoto)}
                         </p>
                         <div className="pt-2">
-                             <span className="inline-block px-3 py-1 text-xs font-semibold rounded-full bg-indigo-600 text-white">
+                             <span className="inline-block px-3 py-1 text-xs font-semibold rounded-full bg-indigo-600 text-white" style={{ marginLeft: "-20px" }}>
                                 {t(footerData.isoText)}
                              </span>
                         </div>

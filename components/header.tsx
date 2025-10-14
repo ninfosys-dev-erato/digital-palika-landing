@@ -31,8 +31,10 @@ export const Header = () => {
             <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-20">
                 
                 {/* Logo/Site Title: Uses the title from siteData */}
-                <Link href="/" className="text-3xl font-extrabold tracking-tight transition-colors"
-                    style={{ color: "#01399A" }}
+                <Link
+                    href="/"
+                    className="text-3xl font-extrabold tracking-tight text-blue-900"
+                    style={{ marginLeft: "90px" }} 
                 >
                     {t(siteData.hero.title)}
                 </Link>
@@ -47,19 +49,17 @@ export const Header = () => {
                                 <li key={item.href}>
                                     <Link
                                         href={item.href}
-                                        className={`text-black text-base transition-colors relative group py-2 ${
-                                            isActive ? 'font-bold' : ''
+                                        className={`text-base transition-colors relative group py-2 ${
+                                            isActive ? 'text-blue-900 font-bold' : 'text-black font-normal'
                                         }`}
-                                        style={isActive ? { color: "#01399A" } : {}}
                                     >
                                         {t(item.label)}
                                         <span
                                             className={`absolute bottom-0 left-0 w-full h-0.5 transition-transform origin-left duration-300 ${
                                                 isActive
-                                                    ? 'scale-x-100'
-                                                    : 'scale-x-0 group-hover:scale-x-100'
+                                                    ? 'scale-x-100 bg-blue-900'
+                                                    : 'scale-x-0 group-hover:scale-x-100 bg-blue-900'
                                             }`}
-                                            style={{ backgroundColor: "#01399A" }}
                                         ></span>
                                     </Link>
                                 </li>
@@ -101,7 +101,7 @@ export const Header = () => {
                     {/* Mobile Menu Toggle (Only visible on small screens) */}
                     <button
                         aria-label="Open mobile menu"
-                        className="lg:hidden p-2 text-gray-700 hover:text-blue-500 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded-full"
+                        className="lg:hidden p-2 text-gray-700 hover:text-blue-900 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-900 rounded-full"
                         style={{ alignSelf: 'center' }}
                         onClick={() => setMenuOpen(true)}
                     >
