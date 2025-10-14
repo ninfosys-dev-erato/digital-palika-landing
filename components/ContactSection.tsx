@@ -58,7 +58,7 @@ export const ContactSection = ({ title, details, formLabels, t }: ContactSection
             <div className="container mx-auto max-w-6xl">
                 
                 {/* Section Title */}
-                <h1 className="text-4xl md:text-5xl font-work-sans font-bold text-ink text-center mb-16">
+                <h1 className="text-2xl md:text-5xl font-work-sans font-bold text-blue-500 text-center mb-16">
                     {title}
                 </h1>
 
@@ -67,14 +67,14 @@ export const ContactSection = ({ title, details, formLabels, t }: ContactSection
                     
                     {/* Phone */}
                     <div className="flex flex-col items-center">
-                        <div className="text-accent mb-4">
+                        <div className="text-blue-500 mb-4">
                             <Icon name="Phone" className="w-8 h-8"/>
                         </div>
-                        <h2 className="text-lg font-work-sans font-semibold text-ink mb-2">
+                        <h2 className="text-lg font-work-sans font-semibold text-black mb-2">
                             {t({ en: 'Phone', ne: 'फोन' })}
                         </h2>
                         {details.phoneNumbers.map((phone, index) => (
-                            <a key={index} href={`tel:${phone}`} className="text-graphite hover:text-accent font-inter transition-colors text-sm">
+                            <a key={index} href={`tel:${phone}`} className="text-blue-700 font-inter transition-colors text-sm">
                                 नेपालभित्र: {phone}
                             </a>
                         ))}
@@ -82,67 +82,67 @@ export const ContactSection = ({ title, details, formLabels, t }: ContactSection
 
                     {/* Email */}
                     <div className="flex flex-col items-center">
-                        <div className="text-accent mb-4">
+                        <div className="text-blue-500 mb-4">
                             <Icon name="Mail" className="w-8 h-8"/>
                         </div>
-                        <h2 className="text-lg font-work-sans font-semibold text-ink mb-2">
+                        <h2 className="text-lg font-work-sans font-semibold text-black mb-2">
                             {t({ en: 'Email', ne: 'इमेल' })}
                         </h2>
-                        <a href={`mailto:${details.email}`} className="text-graphite hover:text-accent font-inter transition-colors">
+                        <a href={`mailto:${details.email}`} className="text-blue-700 hover:text-accent font-inter transition-colors">
                             {details.email}
                         </a>
                     </div>
 
                     {/* Address */}
                     <div className="flex flex-col items-center">
-                        <div className="text-accent mb-4">
+                        <div className="text-blue-500 mb-4">
                             <Icon name="MapPin" className="w-8 h-8"/>
                         </div>
-                        <h2 className="text-lg font-work-sans font-semibold text-ink mb-2">
+                        <h2 className="text-lg font-work-sans font-semibold text-black mb-2">
                             {t({ en: 'Address', ne: 'ठेगाना' })}
                         </h2>
-                        <p className="text-graphite font-inter max-w-xs">
+                        <p className="text-black font-inter max-w-xs">
                             {t(details.address)} 
                         </p>
                     </div>
                 </div>
 
                 {/* Contact Form */}
-                <div className="max-w-3xl mx-auto border border-slate/10 p-8 md:p-12 shadow-xl">
+                <div className="bg-blue-50/60 border border-blue-100 w-full max-w-6xl mx-auto p-8 md:p-12">
                     <form onSubmit={handleSubmit} className="space-y-6">
                         
                         {/* Name and Email Row */}
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                             {/* Full Name */}
                             <div>
-                                <label htmlFor="fullName" className="block text-sm font-medium text-ink mb-2">
+                                <label htmlFor="fullName" className="block text-sm font-medium text-black mb-2">
                                     {t(formLabels.fullName)} *
                                 </label>
                                 <div className="relative">
-                                    <Icon name="User" className="absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-400 w-5 h-5" />
+                                    <Icon name="User" className="absolute left-3 top-1/2 transform -translate-y-1/2 text-black w-5 h-5" />
                                     <input
                                         type="text"
                                         id="fullName"
                                         placeholder={t(formLabels.fullName)}
                                         required
-                                        className="w-full pl-10 pr-4 py-2 border border-slate/20 rounded-md focus:ring-accent focus:border-accent font-inter"
+                                        className="w-full pl-10 pr-4 py-2 border border-slate/20 focus:ring-accent focus:border-accent font-inter text-black"
                                     />
                                 </div>
                             </div>
 
                             {/* Email */}
                             <div>
-                                <label htmlFor="email" className="block text-sm font-medium text-ink mb-2">
+                                <label htmlFor="email" className="block text-sm font-medium text-black mb-2">
                                     {t(formLabels.email)} *
                                 </label>
                                 <div className="relative">
-                                    <Icon name="Mail" className="absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-400 w-5 h-5" />
+                                    <Icon name="Mail" className="absolute left-3 top-1/2 transform -translate-y-1/2 text-black w-5 h-5" />
                                     <input
                                         type="email"
                                         id="email"
                                         placeholder={t(formLabels.email)}
                                         required
-                                        className="w-full pl-10 pr-4 py-2 border border-slate/20 rounded-md focus:ring-accent focus:border-accent font-inter"
+                                        className="w-full pl-10 pr-4 py-2 border border-slate/20 focus:ring-accent focus:border-accent font-inter text-black"
                                     />
                                 </div>
                             </div>
@@ -150,36 +150,36 @@ export const ContactSection = ({ title, details, formLabels, t }: ContactSection
 
                         {/* Contact Reason and Topic Row */}
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            {/* Contact Reason (as seen in image) */}
+                            {/* Contact Reason */}
                             <div>
-                                <label htmlFor="contactReason" className="block text-sm font-medium text-ink mb-2">
+                                <label htmlFor="contactReason" className="block text-sm font-medium text-black mb-2">
                                     {t(formLabels.contactReason)} *
                                 </label>
                                 <div className="relative">
-                                    <Icon name="Phone" className="absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-400 w-5 h-5" />
+                                    <Icon name="Phone" className="absolute left-3 top-1/2 transform -translate-y-1/2 text-black w-5 h-5" />
                                     <input
-                                        type="text" // Or change to <select> for real app
+                                        type="text"
                                         id="contactReason"
                                         placeholder={t(formLabels.contactReason)}
                                         required
-                                        className="w-full pl-10 pr-4 py-2 border border-slate/20 rounded-md focus:ring-accent focus:border-accent font-inter"
+                                        className="w-full pl-10 pr-4 py-2 border border-slate/20 focus:ring-accent focus:border-accent font-inter text-black"
                                     />
                                 </div>
                             </div>
 
-                            {/* Topic (as seen in image) */}
+                            {/* Topic */}
                             <div>
-                                <label htmlFor="topic" className="block text-sm font-medium text-ink mb-2">
+                                <label htmlFor="topic" className="block text-sm font-medium text-black mb-2">
                                     {t(formLabels.topic)} *
                                 </label>
                                 <div className="relative">
-                                    <Icon name="Hash" className="absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-400 w-5 h-5" />
+                                    <Icon name="Hash" className="absolute left-3 top-1/2 transform -translate-y-1/2 text-black w-5 h-5" />
                                     <input
                                         type="text"
                                         id="topic"
                                         placeholder={t(formLabels.topic)}
                                         required
-                                        className="w-full pl-10 pr-4 py-2 border border-slate/20 rounded-md focus:ring-accent focus:border-accent font-inter"
+                                        className="w-full pl-10 pr-4 py-2 border border-slate/20 focus:ring-accent focus:border-accent font-inter text-black"
                                     />
                                 </div>
                             </div>
@@ -187,17 +187,17 @@ export const ContactSection = ({ title, details, formLabels, t }: ContactSection
 
                         {/* Comments/Message */}
                         <div>
-                            <label htmlFor="message" className="block text-sm font-medium text-ink mb-2">
+                            <label htmlFor="message" className="block text-sm font-medium text-black mb-2">
                                 {t(formLabels.message)} *
                             </label>
                             <div className="relative">
-                                <Icon name="Hash" className="absolute left-3 top-4 text-slate-400 w-5 h-5" />
+                                <Icon name="Hash" className="absolute left-3 top-4 text-black w-5 h-5" />
                                 <textarea
                                     id="message"
                                     rows={5}
                                     placeholder={t(formLabels.message)}
                                     required
-                                    className="w-full pl-10 pr-4 py-3 border border-slate/20 rounded-md focus:ring-accent focus:border-accent font-inter text-black"
+                                    className="w-full pl-10 pr-4 py-3 border border-slate/20 focus:ring-accent focus:border-accent font-inter text-black"
                                 ></textarea>
                             </div>
                         </div>
@@ -205,7 +205,7 @@ export const ContactSection = ({ title, details, formLabels, t }: ContactSection
                         {/* Submit Button */}
                         <button
                             type="submit"
-                            className="inline-flex items-center justify-center px-8 py-3 text-base font-work-sans font-semibold text-paper bg-accent rounded-md hover:bg-accent-2 transition-all duration-300 ease-in-out shadow-lg transform hover:-translate-y-0.5"
+                            className="inline-flex items-center justify-center px-8 py-3 text-white font-work-sans font-semibold bg-blue-500 hover:bg-blue-700 transition-all duration-300 ease-in-out"
                         >
                             {t(formLabels.button)}
                         </button>

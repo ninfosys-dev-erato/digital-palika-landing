@@ -27,7 +27,7 @@ export const Header = () => {
 
     return (
         // Use fixed width container for responsiveness and sticky top for smooth scrolling
-        <header className="sticky top-0 z-40 w-full bg-white/95 backdrop-blur-sm shadow-md transition-shadow">
+        <header className="sticky top-0 z-40 w-full bg-white/95 backdrop-blur-sm transition-shadow">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-20">
                 
                 {/* Logo/Site Title: Uses the title from siteData */}
@@ -76,7 +76,7 @@ export const Header = () => {
                             onClick={() => setLang('en' as Language)}
                             className={`px-3 py-1 text-base font-semibold transition-all duration-200 ${
                                 lang === 'en'
-                                    ? 'text-white shadow-md'
+                                    ? 'text-white'
                                     : 'text-gray-600 hover:bg-gray-100'
                             }`}
                             aria-label="Switch to English"
@@ -101,7 +101,7 @@ export const Header = () => {
                     {/* Mobile Menu Toggle (Only visible on small screens) */}
                     <button
                         aria-label="Open mobile menu"
-                        className="lg:hidden p-2 text-gray-700 hover:text-[#01399A] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#01399A] rounded-full"
+                        className="lg:hidden p-2 text-gray-700 hover:text-blue-500 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded-full"
                         style={{ alignSelf: 'center' }}
                         onClick={() => setMenuOpen(true)}
                     >
