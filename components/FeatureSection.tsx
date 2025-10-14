@@ -3,6 +3,24 @@
 import { useLanguage, LocalizedString } from '@/context/LanguageContext';
 import { FeatureItem } from '@/lib/siteData';
 import React from 'react';
+import {
+    Monitor,
+    Building,
+    ListChecks,
+    Calculator,
+    Info,
+    Video,
+    Globe,
+    BarChart,
+    Users,
+    ClipboardCheck,
+    Box,
+    Car,
+    MessageSquare,
+    FileText,
+    Smartphone,
+    Zap
+} from 'lucide-react';
 
 interface FeatureSectionProps {
     title: LocalizedString;
@@ -10,16 +28,35 @@ interface FeatureSectionProps {
     features: FeatureItem[];
 }
 
+// Map icon string to Lucide React icon component
+const iconMap: Record<string, React.ElementType> = {
+    monitor: Monitor,
+    building: Building,
+    "list-check": ListChecks,
+    calculator: Calculator,
+    "info-circle": Info,
+    video: Video,
+    globe: Globe,
+    "barChart": BarChart,
+    users: Users,
+    clipboardCheck: ClipboardCheck,
+    box: Box,
+    car: Car,
+    messageSquare: MessageSquare,
+    fileText: FileText,
+    smartphone: Smartphone,
+    zap: Zap,
+};
+
 // Simple Placeholder for Icon Component
-const FeatureIcon = ({ icon }: { icon: string }) => (
-    <div className="w-16 h-16 rounded-2xl bg-primary/10 text-primary flex items-center justify-center mb-6" title={`Icon: ${icon}`}>
-        {/* Placeholder SVG/Icon - Use a standard icon library in a real app */}
-        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <rect width="18" height="12" x="3" y="8" rx="2" ry="2"/>
-            <path d="M10 4h4"/>
-        </svg>
-    </div>
-);
+const FeatureIcon = ({ icon }: { icon: string }) => {
+    const LucideIcon = iconMap[icon] || Monitor;
+    return (
+        <div className="w-16 h-16 rounded-2xl bg-primary/10 text-primary flex items-center justify-center mb-6">
+            <LucideIcon size={32} />
+        </div>
+    );
+};
 
 
 export const FeatureSection = ({ title, subtitle, features }: FeatureSectionProps) => {

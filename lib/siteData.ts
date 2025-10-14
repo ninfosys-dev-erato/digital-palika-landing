@@ -277,33 +277,33 @@ export const siteData: FullSiteContent = {
                     title: { en: 'Client Information', ne: 'सेवाग्राहीलाई जानकारी' },
                     description: { en: 'Providing information to clients via audio and video.', ne: 'सेवाग्राहीलाई अडियो, भिडियो मार्फत जानकारी' },
                 },
-                                {
+                {
                     id: 7,
-                    icon: 'video', // Represents the video icon
+                    icon: 'smartphone', // Online Services
                     title: { en: 'Online Services', ne: 'अनलाइन सेवाहरु' },
                     description: { en: 'Simplifying access to municipal services online.', ne: 'पालिकाले प्रवाह गर्ने सेवाहरुलाई अनलाइन मार्फत आवेदन लिने, दर्ता गर्ने र प्रमाणपत्र प्रदान' },
                 },
-                                {
+                {
                     id: 8,
-                    icon: 'video', // Represents the video icon
+                    icon: 'zap', // Time Saving
                     title: { en: 'Time Saving', ne: 'समय बचत' },
                     description: { en: 'Saving time for representatives, employees, and clients.', ne: 'पालिकाको जनप्रतिनिधि, कर्मचारी र सेवाग्राहीको समयको बचत' },
                 },
-                                {
+                {
                     id: 9,
-                    icon: 'video', // Represents the video icon
+                    icon: 'box', // Unified Software
                     title: { en: 'Unified Software', ne: 'एकीकृत सफ्टवेयर' },
                     description: { en: 'Integrating various municipal functions into a unified software platform.', ne: 'पालिकालाई एकीकृत सफ्टवेयरमा आवद्ध गरि सुचना, तथ्यांक, सेवाप्रवाहमा सहज' },
                 },
-                                {
+                {
                     id: 10,
-                    icon: 'video', // Represents the video icon
+                    icon: 'list-check', // Workflow Automation
                     title: { en: 'Workflow Automation', ne: 'कार्यप्रवाह स्वचालन' },
                     description: { en: 'Automating workflows for efficiency.', ne: 'सेसमग्र पालिकाको कामलाई प्रबिधि मार्फत नै गर्ने' },
                 },
-                                {
+                {
                     id: 11,
-                    icon: 'video', // Represents the video icon
+                    icon: 'users', // Client Experience
                     title: { en: 'Client Experience', ne: 'पालिकाबासीको अनुभुती' },
                     description: { en: 'Providing a seamless experience for citizens interacting with the municipality sitting from home.', ne: 'पालिकाबासीले घरमै बसेर पालिका पुगेको अनुभुती' },
                 },
