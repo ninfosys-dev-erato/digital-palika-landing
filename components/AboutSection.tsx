@@ -95,5 +95,5 @@ export const AboutSection = ({ sections, stats }: AboutSectionProps) => {
             </div>
         </section>
     );
-};
+}
 
