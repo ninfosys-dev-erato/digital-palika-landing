@@ -532,17 +532,17 @@ export const clients: ClientItem[] = [
     },
         {
         id: 36,
-        image: '/emblemofNepal.png',
+        image: '/KathmanduUniversity.png',
         name: { en: 'Kathmandu University, Dhulikhel, Kavre', ne: 'काठमाडौं विश्वविद्यालय, धुलिखेल, काभ्रे' }
     },
         {
         id: 37,
-        image: '/emblemofNepal.png',
+        image: '/savetheChildren.png',
         name: { en: 'Save the Children, Kathmandu, Nepal', ne: 'सेभ द चिल्ड्रेन, काठमाडौं, नेपाल' }
     },
         {
         id: 38,
-        image: '/emblemofNepal.png',
+        image: '/tribhuvanUniversity.png',
         name: { en: 'Tribhuvan University, Kirtipur, Nepal', ne: 'त्रिभुवन विश्वविद्यालय, कीर्तिपुर, नेपाल' }
     },
         {
