@@ -1,6 +1,7 @@
 import './globals.css'; 
 import type { Metadata } from 'next';
 import { Inter, Inter_Tight, Work_Sans, Source_Serif_4 } from 'next/font/google';
+import Providers from "./providers";
 
 const inter = Inter({
   subsets: ['latin'],
@@ -85,18 +86,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    // Apply font CSS variables to the HTML element
-    <html lang="en" className={`${inter.variable} ${interTight.variable} ${workSans.variable} ${sourceSerifPro.variable}`}>
-      {/* Apply default body styles from Tailwind via globals.css body rule */}
-      <body className="antialiased">
-        {/* Skip-to-content link for accessibility */}
-        <a
-          href="#main-content"
-          className="sr-only focus:not-sr-only absolute left-4 top-4 z-50 p-2 bg-accent text-paper rounded-md shadow-lg transition-colors duration-200"
-        >
-          Skip to main content
-        </a>
-        {children}
+    <html lang="en">
+      <body>
+        <Providers>
+          {children}
+        </Providers>
       </body>
     </html>
   );

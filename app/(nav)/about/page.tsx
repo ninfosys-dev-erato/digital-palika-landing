@@ -4,8 +4,8 @@ import { Fragment } from 'react';
 import { Header } from '@/components/header';
 import { Footer } from '@/components/footer';
 import { AboutSection } from '@/components/AboutSection';
-import { LanguageProvider, useLanguage, NavItem } from '@/context/LanguageContext';
-import { siteData, FullSiteContent, StatisticItem } from '@/lib/siteData';
+import { LanguageProvider } from '@/context/LanguageContext';
+import { siteData, FullSiteContent } from '@/lib/siteData';
 
 // --- Main About Page Component ---
 export default function AboutPage() {
@@ -14,11 +14,10 @@ export default function AboutPage() {
             <AboutContent />
         </LanguageProvider>
     );
-};
+}
 
 // --- Component to render the page content ---
 const AboutContent = () => {
-    const { lang } = useLanguage();
     // Use the imported global data
     const content: FullSiteContent = siteData;
 
@@ -28,23 +27,11 @@ const AboutContent = () => {
 
     return (
         <Fragment>
-            <Header
-                navItems={content.header.navItems}
-                currentLang={lang}
-                onSearchClick={() => { /* Functionality to be added later */ }}
-            />
+            <Header />
             <main id="main-content">
-                <AboutSection
-                    sections={aboutSections}
-                    stats={stats}
-                />
+                <AboutSection sections={aboutSections} stats={stats} />
             </main>
-            <Footer
-                // Use the Footer content from the global data
-                copyright={content.footer.copyright}
-                links={content.footer.quickLinks.links.map(link => ({ ...link, label: link.label }))}
-                onOfficesClick={() => { /* Functionality to be added later */ }}
-            />
+            <Footer />
         </Fragment>
     );
 };

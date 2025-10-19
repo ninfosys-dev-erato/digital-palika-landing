@@ -1,6 +1,7 @@
 "use client";
 
-import { createContext, useState, useContext, ReactNode } from 'react';
+import React, { createContext, useContext, useEffect, useState } from "react";
+import type { ReactNode } from "react"; // add this
 
 // Core types for the language state
 export type Language = 'en' | 'ne';
@@ -19,42 +20,43 @@ interface LanguageContextType {
     t: (text: LocalizedString) => string;
 }
 
-const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
+const LanguageContext = createContext<LanguageContextType | null>(null);
 
 export const useLanguage = () => {
-    const context = useContext(LanguageContext);
-        if (!context) {
-            throw new Error('useLanguage must be used within a LanguageProvider');
-}
-return context;
+    const ctx = useContext(LanguageContext);
+    if (!ctx) throw new Error("useLanguage must be used within LanguageProvider");
+    return ctx;
 };
 
 interface LanguageProviderProps {
     children: ReactNode;
+    initialLang?: Language;
 }
 
-export const LanguageProvider = ({ children }: LanguageProviderProps) => {
-// Initialize language from localStorage or default to 'ne' (Nepali)
-const [lang, setLangState] = useState<Language>(() => {
-    if (typeof window !== 'undefined') { 
-        const storedLang = localStorage.getItem('appLang') as Language;
-        return storedLang || 'ne'; // Default to Nepali
-        }
-        return 'ne'; // Default for server-side render
-});
+export const LanguageProvider = ({ children, initialLang = "ne" }: LanguageProviderProps) => {
+    // Use server-provided initialLang so SSR and client match
+    const [lang, setLangState] = useState<Language>(initialLang);
 
-const setLang = (newLang: Language) => {
-    setLangState(newLang);
-    if (typeof window !== 'undefined') { 
-        localStorage.setItem('appLang', newLang);
-    }
-};
+    // On mount, sync with cookie/localStorage (if present)
+    useEffect(() => {
+        const cookieMatch = document.cookie.match(/(?:^|;\s*)lang=(en|ne)/);
+        const cookieLang = (cookieMatch?.[1] as Language) || null;
+        const stored = (localStorage.getItem("lang") as Language | null) || null;
+        const next = cookieLang || stored || initialLang;
+        if (next && next !== lang) setLangState(next);
+    }, []); // run once
 
-// Translation logic: safely selects the string based on the current 'lang'
-const t = (text: LocalizedString) => text[lang];
-return (
-<LanguageContext.Provider value={{ lang, setLang, t }}>
-    {children}
-    </LanguageContext.Provider>
+    const setLang = (l: Language) => {
+        setLangState(l);
+        try { localStorage.setItem("lang", l); } catch {}
+        document.cookie = `lang=${l}; Path=/; Max-Age=31536000; SameSite=Lax`;
+    };
+
+    const t = (v: LocalizedString) => v[lang];
+
+    return (
+        <LanguageContext.Provider value={{ lang, setLang, t }}>
+            {children}
+        </LanguageContext.Provider>
     );
 };

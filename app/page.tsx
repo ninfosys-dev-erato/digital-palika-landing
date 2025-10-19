@@ -78,18 +78,7 @@ const HomeContent = () => {
   return (
     <Fragment>
       {/* Sticky Header */}
-      <Header
-        navItems={[
-          { label: { en: 'Home', ne: 'गृह पृष्ठ' }, href: '/' },
-          { label: { en: 'About Us', ne: 'हाम्रो बारेमा' }, href: '/about' },
-          { label: { en: 'Our Clients', ne: 'हाम्रो ग्राहकहरु' }, href: '/clients' },
-          { label: { en: 'Features', ne: 'विशेषताहरु' }, href: '/features' },
-          { label: { en: 'Contact', ne: 'सम्पर्क' }, href: '/contact' },
-        ]}
-        currentLang={lang}
-        onSearchClick={() => {}}
-        className="sticky top-0 z-50 bg-white shadow"
-      />
+      <Header />
 
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-[#001841] via-[#001841] to-[#001841] text-white min-h-screen flex items-center relative opacity-95 transition-opacity duration-500">
@@ -106,7 +95,7 @@ const HomeContent = () => {
             </p>
             <a
               href="/contact"
-              className="inline-block bg-white hover:bg-gray-100 text-[#001841] font-semibold px-4 sm:px-6 py-2 sm:py-3 rounded-lg shadow transition ml-0 sm:ml-4 md:ml-16 lg:ml-28"
+              className="inline-block bg-white hover:bg-gray-100 text-[#001841] font-semibold px-4 sm:px-6 py-2 sm:py-3 rounded-none shadow transition ml-0 sm:ml-4 md:ml-16 lg:ml-28"
             >
               {t({ en: 'Book Demo', ne: 'डेमो बुक गर्नुहोस्' })}
             </a>
@@ -440,17 +429,7 @@ const HomeContent = () => {
       </section>
 
       {/* Footer */}
-      <Footer
-        copyright={t({
-          en: `© ${new Date().getFullYear()} Ninja Infosys. All rights reserved.`,
-          ne: `© ${new Date().getFullYear()} निन्जा इन्फोसिस्। सबै अधिकार सुरक्षित।`
-        })}
-        links={[
-          { label: t({ en: 'Privacy Policy', ne: 'गोपनीयता नीति' }), href: '/privacy' },
-          { label: t({ en: 'Terms of Use', ne: 'प्रयोगका सर्तहरू' }), href: '/terms' },
-        ]}
-        onOfficesClick={() => {}}
-      />
+      <Footer />
 
       {/* --- NEW SCROLL TO TOP BUTTON --- */}
       {showScrollTop && (

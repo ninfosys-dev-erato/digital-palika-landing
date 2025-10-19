@@ -4,19 +4,14 @@ import { Header } from '@/components/header';
 import { Footer } from '@/components/footer'; 
 import { ContactSection } from '@/components/ContactSection'; 
 import { LanguageProvider, useLanguage } from '@/context/LanguageContext'; 
-import type { SiteContent, ContactDetails, ContactFormLabels, FooterLink, NavItem } from '@/context/LanguageContext'; 
+import type { FullSiteContent } from '@/lib/siteData';
 
 // --- Content for the Contact Page ---
-export const siteContent: SiteContent = {
-    // Re-use navigation from other pages
+export const siteContent: Partial<FullSiteContent> = {
+    // Header nav items here aren’t used by <Header /> (Header reads from siteData),
+    // so keep it empty to avoid type/shape mismatches.
     header: {
-        navItems: [
-            { label: { en: 'Home', ne: 'गृह पृष्ठ' }, href: '/' },
-            { label: { en: 'About Us', ne: 'हाम्रो बारेमा' }, href: '/about' },
-            { label: { en: 'Our Clients', ne: 'हाम्रो ग्राहकहरु' }, href: '/clients' },
-            { label: { en: 'Specialties', ne: 'विशेषताहरु' }, href: '/specialties' },
-            { label: { en: 'Contact', ne: 'सम्पर्क' }, href: '/contact' },
-        ],
+        navItems: [],
     },
     // Hero is not strictly needed for a contact page, keep it minimal
     hero: { title: {en:'', ne:''}, description: {en:'', ne:''}, ctaText: {en:'', ne:''}, ctaLink: '' }, 
@@ -70,11 +65,7 @@ const ContactContent = () => {
 
     return (
         <Fragment>
-            <Header
-                navItems={siteContent.header.navItems as NavItem[]}
-                currentLang={lang}
-                onSearchClick={() => { /* Functionality to be added later */ }}
-            />
+            <Header />
             <main id="main-content">
                 <ContactSection
                     title={t(contactContent.title)}
@@ -84,11 +75,8 @@ const ContactContent = () => {
                     t={t} // Pass the translator function to the child component
                 />
             </main>
-            <Footer
-                copyright={t(siteContent.footer.copyright)}
-                links={siteContent.footer.links.map((link: FooterLink) => ({ ...link, label: t(link.label) }))}
-                onOfficesClick={() => { /* Functionality to be added later */ }}
-            />
+            {/* Footer doesn’t take props; it reads from siteData internally */}
+            <Footer />
         </Fragment>
     );
 };
